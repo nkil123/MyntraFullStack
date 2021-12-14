@@ -13,7 +13,33 @@ router.post ('', async (req, res) => {
 });
 router.get ('', async (req, res) => {
   try {
-    const product = await Product.find ().lean ().exec ();
+    const products = await Product.find ().lean ().exec ();
+
+    return res.status (201).send ({products: products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.patch ('/:id', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndUpdate (req.params.id, req.body, {
+      new: true,
+    })
+      .lean ()
+      .exec ();
+
+    return res.status (201).send ({product: product});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.delete ('/:id', async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete (req.params.id)
+      .lean ()
+      .exec ();
 
     return res.status (201).send ({product: product});
   } catch (e) {
