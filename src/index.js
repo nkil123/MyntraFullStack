@@ -12,6 +12,9 @@ app.use ('/mainProducts', mainProductController);
 const productController = require ('./controllers/product.controller');
 app.use ('/products', productController);
 
+const wishlistController = require ('./controllers/wishlist.controller');
+app.use ('/wishlists', wishlistController);
+
 app.get ('/', async (req, res) => {
   return res.render ('index');
 });

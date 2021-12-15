@@ -1,31 +1,31 @@
 const express = require ('express');
-const Product = require ('../models/product.model');
+const Wishlist = require ('../models/wishlist.model');
 const router = express.Router ();
 
 router.post ('', async (req, res) => {
   try {
-    const product = await Product.create (req.body);
+    const wishlist = await Wishlist.create (req.body);
 
-    return res.status (201).send ({product: product});
+    return res.status (201).send ({wishlist: wishlist});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
 router.get ('', async (req, res) => {
   try {
-    const products = await Product.find ().lean ().exec ();
+    const wishlists = await Wishlist.find ().lean ().exec ();
 
-    return res.status (201).send ({products: products});
+    return res.render ('wishlist', {wishlists});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
 router.get ('/:id', async (req, res) => {
   try {
-    const product = await Product.findById (req.params.id).lean ().exec ();
+    const wishlist = await Wishlist.findById (req.params.id).lean ().exec ();
 
-    // return res.json (product);
-    return res.render ('description.ejs', {product});
+    // return res.json (wishlist);
+    return res.render ('description.ejs', {wishlist});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
@@ -33,13 +33,17 @@ router.get ('/:id', async (req, res) => {
 
 router.patch ('/:id', async (req, res) => {
   try {
-    const product = await Product.findByIdAndUpdate (req.params.id, req.body, {
-      new: true,
-    })
+    const wishlist = await Wishlist.findByIdAndUpdate (
+      req.params.id,
+      req.body,
+      {
+        new: true,
+      }
+    )
       .lean ()
       .exec ();
 
-    return res.status (201).send ({product: product});
+    return res.status (201).send ({wishlist: wishlist});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
@@ -47,11 +51,12 @@ router.patch ('/:id', async (req, res) => {
 
 router.delete ('/:id', async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete (req.params.id)
+    const wishlist = await wishlist
+      .findByIdAndDelete (req.params.id)
       .lean ()
       .exec ();
 
-    return res.status (201).send ({product: product});
+    return res.status (201).send ({wishlist: wishlist});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }

@@ -99,7 +99,7 @@ opt6.onclick = () => {
 };
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
-  window.location.href = '/myntra/myntra.html';
+  window.location.href = '/mainProducts';
 };
 // opt6.onmouseover = function () {
 //   toshow6.style.visibility = 'visible';
@@ -112,7 +112,7 @@ logo.onclick = function () {
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  window.location.href = '/wishlist/wishlist.html';
+  window.location.href = '/wishlists';
 };
 
 let bag = document.getElementById ('bagI');
