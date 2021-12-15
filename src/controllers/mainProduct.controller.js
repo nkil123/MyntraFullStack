@@ -31,8 +31,8 @@ router.get ('/products', async (req, res) => {
       .populate ('products')
       .lean ()
       .exec ();
-    let products = mainProducts[0].products;
-    // return res.json (products);
+    let products = mainProducts;
+    return res.json (mainProducts);
     return res.render ('productsPage', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, status: 'Failed'});
