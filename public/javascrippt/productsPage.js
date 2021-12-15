@@ -2,6 +2,10 @@ function nextPage (id) {
   window.location.href = `/products/${id}`;
 }
 
+function filter (query, parameter) {
+  window.location.href = `/products/*/category/${query}/${parameter}`;
+}
+
 //----------------------------------------------------------------------------------------------
 // function show_products (products) {
 //   products_cont.innerHTML = null;

@@ -1,3 +1,4 @@
+const {query} = require ('express');
 const express = require ('express');
 const Product = require ('../models/product.model');
 const router = express.Router ();
@@ -31,13 +32,17 @@ router.get ('/:id', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('/*/category', async (req, res) => {
+router.get ('/*/category/p1/p2', async (req, res) => {
   try {
-    const products = await Product.find ({ageGroup: req.query.catg})
-      .lean ()
-      .exec ();
-
-    // return res.json ({product});
+    // console.log (cat, req.query.parameter);
+    let products = await Product.find ().lean ().exec ();
+    console.log (req.params.p1, req.params.p2);
+    products = products.filter (p => {
+      return p[req.params.p1] === req.params.p2;
+    });
+    console.log (products);
+    return res.json ({products});
+    // console.log (products);
     return res.render ('productsPage.ejs', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
