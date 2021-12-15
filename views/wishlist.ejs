@@ -24,7 +24,12 @@
     <link rel="stylesheet" href="/myntra/style.css" />
   </head>
   <body>
-    <div id="navbar"></div>
+    <!-- <div id="navbar"></div> -->
+      <!------- Navbar Starts Here ----->
+
+      <%- include ("partials/navbar.partials.ejs") %>
+
+      <!------- Navbar Ends Here ------->
     <div id="title">
       <span>
         <b>My Wishlist</b>
@@ -54,9 +59,14 @@
         </div>
       </div>
     </div>
-    <footer id="footer"></footer>
+    <!-- <footer id="footer"></footer> -->
+      <!------- Navbar Starts Here ----->
+
+      <%- include ("partials/footer.partials.ejs") %>
+
+      <!------- Navbar Ends Here ------->
   </body>
 </html>
 
-<script src="script.js" type="module"></script>
+<script src="./css/wishlistscript.js" type="module"></script>
 <script src="/myntra/script.js" type="module"></script>

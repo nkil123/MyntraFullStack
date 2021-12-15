@@ -19,11 +19,16 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="productsPage.css" />
-    <link rel="stylesheet" href="/myntra/style.css" />
+    <link rel="stylesheet" href="/css/productsPage.css" />
+    <link rel="stylesheet" href="/css/myntra.css" />
   </head>
   <body>
-    <div id="navbar"></div>
+    <!-- <div id="navbar"></div> -->
+      <!------- Navbar Starts Here ----->
+
+      <%- include ("partials/navbar.partials.ejs") %>
+
+      <!------- Navbar Ends Here ------->
 
     <div id="parent_div">
       <div class="topDiv">Home</div>
@@ -306,7 +311,12 @@
         </div>
       </div>
       <!-- <footer id="footer"></footer> -->
+        <!------- Navbar Starts Here ----->
+
+        <%- include ("partials/footer.partials.ejs") %>
+
+        <!------- Navbar Ends Here ------->
     </div>
   </body>
 </html>
-<script src="productsPage.js" type="module"></script>
+<script src="./javascript/productsPage.js" type="module"></script>
