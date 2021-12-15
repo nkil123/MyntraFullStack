@@ -1,17 +1,18 @@
 // import {navbar} from '/comps/navbar/navbar.js';
 // import {aObjs, ftn} from '/comps/data/data.js';
 // console.log (aObjs ());
-var newdatas = aObjs ();
+// var newdatas = aObjs ();
 
 // import {foot} from '/comps/footer/footer.js';
 
-let nav = document.getElementById ('navbar');
-nav.innerHTML = navbar ();
+// let nav = document.getElementById ('navbar');
+// nav.innerHTML = navbar ();
+console.log (products);
 
 let opt1 = document.getElementById ('opt1');
 let toshow = document.getElementById ('MEN');
-let ddown = document.getElementsByClassName ('ddown');
-let name = document.getElementById ('name');
+// let ddown = document.getElementsByClassName ('ddown');
+// let name = document.getElementById ('name');
 opt1.onmouseover = function () {
   // console.log(toshow);
   opt1.style.borderBottom = '4px solid red';
@@ -117,7 +118,7 @@ bag.onclick = function () {
 
 /// FOR DATA AND FILTER
 
-var productData;
+var productData = 'from backend';
 
 if (localStorage.getItem ('filter') === null) {
   localStorage.setItem ('filter', JSON.stringify ([]));

@@ -13,11 +13,27 @@ router.post ('', async (req, res) => {
 });
 router.get ('', async (req, res) => {
   try {
-    const mainProduct = await MainProduct.find ().lean ().exec ();
+    const mainProduct = await MainProduct.find ()
+      .populate ('products')
+      .lean ()
+      .exec ();
 
     return res.status (201).send ({mainProduct: mainProduct});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/products', async (req, res) => {
+  try {
+    const products = await MainProduct.find ()
+      .populate ('products')
+      .lean ()
+      .exec ();
+
+    return res.render ('productPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, status: 'Failed'});
   }
 });
 

@@ -1,6 +1,7 @@
 const {Schema, model} = require ('mongoose');
 
 const mainProductSchema = Schema ({
+  imageUrl: {type: String, required: true},
   BrandName: {type: String, required: true},
   products: [
     {

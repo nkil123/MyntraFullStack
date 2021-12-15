@@ -20,6 +20,15 @@ router.get ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+router.patch ('/:id', async (req, res) => {
+  try {
+    const product = await Product.findById (req.params.id).lean ().exec ();
+
+    return res.render ('description.ejs', {product});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
 
 router.patch ('/:id', async (req, res) => {
   try {

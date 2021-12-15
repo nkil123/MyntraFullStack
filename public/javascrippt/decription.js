@@ -1,13 +1,13 @@
-import {navbar} from '/comps/navbar/navbar.js';
+// import {navbar} from '/comps/navbar/navbar.js';
 
-import {foot} from '/comps/footer/footer.js';
+// import {foot} from '/comps/footer/footer.js';
 
-let footer = document.getElementById ('footer');
+// let footer = document.getElementById ('footer');
 
-footer.innerHTML = foot ();
+// footer.innerHTML = foot ();
 
-let nav = document.getElementById ('navbar');
-nav.innerHTML = navbar ();
+// let nav = document.getElementById ('navbar');
+// nav.innerHTML = navbar ();
 
 // let data = {
 //   id: 21,
@@ -31,10 +31,12 @@ nav.innerHTML = navbar ();
 //   },
 // };
 
-let parent = document.getElementById ('Myn_pro');
+var parent = document.getElementById ('Myn_pro');
 
-let dat = JSON.parse (localStorage.getItem ('describe'));
-let data = dat[0];
+// let dat = JSON.parse (localStorage.getItem ('describe'));
+// let data = dat[0];
+
+let data = 'from-backend';
 
 function MyntraDecricption () {
   console.log ('data:', data);
