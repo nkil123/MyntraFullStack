@@ -230,3 +230,13 @@ span {
   color: black;
   background-color: #e9e9ed;
 }
+
+.discount{
+  font-size: 12px;
+  color: tomato;
+}
+
+.off_price{
+  font-size: 12px;
+  text-decoration :line-through;
+}
