@@ -30,13 +30,21 @@
 //     count: 220,
 //   },
 // };
-console.log ('description');
+
+console.log (product);
 var parent = document.getElementById ('Myn_pro');
 
 // let dat = JSON.parse (localStorage.getItem ('describe'));
 // let data = dat[0];
 
-let data = 'from-backend';
+// let data = 'from-backend';
+async function fiddd (id) {
+  let fetch = await fetch (`http://localhost:2233/products/${id}`);
+
+  let data = await fetch.json ();
+
+  return data;
+}
 
 function MyntraDecricption () {
   console.log ('data:', data);
