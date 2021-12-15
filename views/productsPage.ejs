@@ -310,7 +310,7 @@
           <div id="products_cont">
             <% products.map((product) => { %>
                <% let id = product._id %>
-              <div class="" onclick="changePage('<%= product._id %>')">
+              <div class="" onclick="nextPage('<%= product._id %>')">
                 
                   <div class="img_div">
                     
@@ -330,9 +330,6 @@
                                 
               </div>
               <% }) %>
-
-
-
 
           </div>
         </div>

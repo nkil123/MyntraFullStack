@@ -1,140 +1,8 @@
-// import {navbar} from '/comps/navbar/navbar.js';
-// import {aObjs, ftn} from '/comps/data/data.js';
-// console.log (aObjs ());
-// var newdatas = aObjs ();
+function nextPage (id) {
+  window.location.href = `/products/${id}`;
+}
 
-// import {foot} from '/comps/footer/footer.js';
-
-// let nav = document.getElementById ('navbar');
-// nav.innerHTML = navbar ();
-// console.log (products);
-
-// let opt1 = document.getElementById ('opt1');
-// let toshow = document.getElementById ('MEN');
-// // let ddown = document.getElementsByClassName ('ddown');
-// // let name = document.getElementById ('name');
-// opt1.onmouseover = function () {
-//   // console.log(toshow);
-//   opt1.style.borderBottom = '4px solid red';
-
-//   toshow.style.visibility = 'visible';
-// };
-// opt1.onmouseleave = function () {
-//   // console.log(toshow);
-//   opt1.style.borderBottom = null;
-//   toshow.style.visibility = 'hidden';
-// };
-
-// let opt2 = document.getElementById ('opt2');
-// let toshow2 = document.getElementById ('WOMEN');
-// // let ddown = document.getElementsByClassName("ddown");
-// // let name = document.getElementById("name");
-// opt2.onmouseover = function () {
-//   // console.log(toshow2);
-//   opt2.style.borderBottom = '4px solid red';
-//   toshow2.style.visibility = 'visible';
-// };
-// opt2.onmouseleave = function () {
-//   // console.log(toshow2);
-//   opt2.style.borderBottom = null;
-//   toshow2.style.visibility = 'hidden';
-// };
-
-// let opt3 = document.getElementById ('opt3');
-// let toshow3 = document.getElementById ('KIDS');
-// // let ddown = document.getElementsByClassName("ddown");
-// // let name = document.getElementById("name");
-// console.log (opt3, toshow3);
-// opt3.onmouseover = function () {
-//   // console.log(toshow3);
-//   opt3.style.borderBottom = '4px solid red';
-//   toshow3.style.visibility = 'visible';
-// };
-// opt3.onmouseleave = function () {
-//   // console.log(toshow3);
-//   opt3.style.borderBottom = null;
-//   toshow3.style.visibility = 'hidden';
-// };
-
-// let opt4 = document.getElementById ('opt4');
-// let toshow4 = document.getElementById ('HOMEL');
-// // let ddown = document.getElementsByClassName("ddown");
-// // let name = document.getElementById("name");
-// console.log (opt4, toshow4);
-// opt4.onmouseover = function () {
-//   // console.log(toshow4);
-//   opt4.style.borderBottom = '4px solid red';
-//   toshow4.style.visibility = 'visible';
-// };
-// opt4.onmouseleave = function () {
-//   // console.log(toshow4);
-//   opt4.style.borderBottom = null;
-//   toshow4.style.visibility = 'hidden';
-// };
-
-// let opt5 = document.getElementById ('opt5');
-// let toshow5 = document.getElementById ('BEAUTY');
-// // let ddown = document.getElementsByClassName("ddown");
-// // let name = document.getElementById("name");
-// // console.log(opt4, toshow4);
-// opt5.onmouseover = function () {
-//   // console.log(toshow4);
-//   opt5.style.borderBottom = '4px solid red';
-//   toshow5.style.visibility = 'visible';
-// };
-// opt5.onmouseleave = function () {
-//   // console.log(toshow5);
-//   opt5.style.borderBottom = null;
-//   toshow5.style.visibility = 'hidden';
-// };
-
-// let opt6 = document.getElementById ('profileI');
-// let toshow6 = document.getElementById ('dprofile');
-
-// opt6.onmouseover = function () {
-//   toshow6.style.visibility = 'visible';
-// };
-// opt6.onmouseleave = function () {
-//   opt6.style.borderBottom = null;
-//   toshow6.style.visibility = 'hidden';
-// };
-
-// let wishlist = document.getElementById ('wishlistI');
-// wishlist.style.cursor = 'pointer';
-// wishlist.onclick = function () {
-//   window.location.href = '/wishlist/wishlist.html';
-// };
-
-// let logo = document.getElementById ('logo');
-// logo.onclick = function () {
-//   window.location.href = '/myntra/myntra.html';
-// };
-
-// let bag = document.getElementById ('bagI');
-// bag.style.cursor = 'pointer';
-// bag.onclick = function () {
-//   window.location.href = '/bag/bag.html';
-// };
-
-// /// FOR DATA AND FILTER
-
-// var productData = 'from backend';
-
-// if (localStorage.getItem ('filter') === null) {
-//   localStorage.setItem ('filter', JSON.stringify ([]));
-// }
-
-// let filter = JSON.parse (localStorage.getItem ('filter'));
-// if (filter.length === 0) {
-//   productData = newdatas;
-// } else {
-//   productData = ftn (filter[0], newdatas);
-// }
-
-// console.log (ftn ('men', newdatas));
-
-// var products_cont = document.getElementById ('products_cont');
-
+//----------------------------------------------------------------------------------------------
 // function show_products (products) {
 //   products_cont.innerHTML = null;
 
@@ -243,7 +111,7 @@
 //     products_cont.append (outer_div);
 //   });
 // }
-
+//---------------------------------------------------------------------------------------
 // let whatsnew = document.getElementById ('whatsnew');
 // whatsnew.onclick = function () {
 //   let arr = productData.sort ((a, b) => {

@@ -30,7 +30,7 @@
 //     count: 220,
 //   },
 // };
-
+console.log ('description');
 var parent = document.getElementById ('Myn_pro');
 
 // let dat = JSON.parse (localStorage.getItem ('describe'));
