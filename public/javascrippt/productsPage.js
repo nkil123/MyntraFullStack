@@ -3,7 +3,26 @@ function nextPage (id) {
 }
 
 function filter (query, parameter) {
-  window.location.href = `/products/*/category/${query}/${parameter}`;
+  if (query === 'category') {
+    parameter = 'H&M' + ' ' + parameter;
+  }
+  window.location.href = `/products/category/${query}/${parameter}`;
+}
+
+function priceFilter (start, end) {
+  window.location.href = `/products/price/${start}/${end}`;
+}
+
+function colorFilter (color) {
+  window.location.href = `/products/color/${color}`;
+}
+
+function discountFilter (discount) {
+  window.location.href = `/products/discount/${discount}`;
+}
+
+function sortt (val) {
+  window.location.href = `/products/sort/${val}`;
 }
 
 //----------------------------------------------------------------------------------------------
@@ -34,15 +53,16 @@ function filter (query, parameter) {
 //     wishname.innerHTML = 'WISHLIST';
 
 //     wishbtn.append (wishicon, wishname);
+let wishbtn = document.getElementsByClassName ('wishbtn');
+let outer_div = document.getElementsByClassName ('outer_div');
+outer_div.onmousemove = function () {
+  wishbtn.style.visibility = 'visible';
+  wishbtn.style.border = '2px solid grey';
+};
 
-//     outer_div.onmousemove = function () {
-//       wishbtn.style.visibility = 'visible';
-//       wishbtn.style.border = '2px solid grey';
-//     };
-
-//     outer_div.onmouseout = function () {
-//       wishbtn.style.visibility = 'hidden';
-//     };
+outer_div.onmouseout = function () {
+  wishbtn.style.visibility = 'hidden';
+};
 
 //     wishbtn.onclick = function () {
 //       wishicon.style.background = 'red';

@@ -32,17 +32,84 @@ router.get ('/:id', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('/*/category/p1/p2', async (req, res) => {
+router.get ('/category/:p1/:p2', async (req, res) => {
   try {
     // console.log (cat, req.query.parameter);
+    console.log (req.params.p1, req.params.p2);
     let products = await Product.find ().lean ().exec ();
     console.log (req.params.p1, req.params.p2);
     products = products.filter (p => {
       return p[req.params.p1] === req.params.p2;
     });
+
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+router.get ('/price/:p1/:p2', async (req, res) => {
+  try {
+    // console.log (cat, req.query.parameter);
+    // console.log (req.params.p1, req.params.p2);
+    let products = await Product.find ().lean ().exec ();
     console.log (products);
-    return res.json ({products});
+    products = products.filter (p => {
+      console.log (p.price);
+      return p.price < req.params.p2 && p.price > req.params.p1;
+    });
+
+    console.log (products);
+
+    // return res.json ({products})
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/color/:color', async (req, res) => {
+  try {
+    // console.log (cat, req.query.parameter);
+    // console.log (req.params.p1, req.params.p2);
+    let products = await Product.find ().lean ().exec ();
+    products = products.filter (p => {
+      return p.color === req.params.color;
+    });
+
+    // return res.json ({products})
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/discount/:discount', async (req, res) => {
+  try {
+    // console.log (cat, req.query.parameter);
+    // console.log (req.params.p1, req.params.p2);
+    let products = await Product.find ().lean ().exec ();
+    products = products.filter (p => {
+      return +p.discount >= +req.params.discount;
+    });
     // console.log (products);
+    // return res.json ({products});
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/sort/:p', async (req, res) => {
+  try {
+    // console.log (cat, req.query.parameter);
+    // console.log (req.params.p1, req.params.p2);
+    let val = req.params.p;
+    let products = await Product.find ({}).sort (val).lean ().exec ();
+    // products = products.filter (p => {
+    //   return +p.discount >= +req.params.discount;
+    // });
+    // console.log (products);
+    // return res.json ({products});
     return res.render ('productsPage.ejs', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
