@@ -1,15 +1,3 @@
-import {navbar} from './comps/navbar/navbar.js';
-
-import {foot} from './comps/footer/footer.js';
-
-let navvbar = document.getElementById ('navbar');
-console.log ('navbar:', navvbar);
-
-navvbar.innerHTML = navbar ();
-
-let footer = document.getElementById ('footer');
-
-footer.innerHTML = foot ();
 let hamburger = document.getElementById ('hamburger');
 let navigation = document.getElementById ('navigation');
 // navigation.style.visibility = 'visible';
@@ -136,17 +124,17 @@ bag.onclick = function () {
 let take = document.getElementById ('take');
 
 take.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '../productsPage';
 };
 let take2 = document.getElementById ('take2');
 
 take2.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '../productsPage.ejs';
 };
 let take3 = document.getElementById ('take3');
 
 take3.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '../views/productsPage.ejs';
 };
 let take4 = document.getElementById ('take4');
 

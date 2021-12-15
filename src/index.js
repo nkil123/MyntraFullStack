@@ -12,4 +12,8 @@ app.use ('/mainProducts', mainProductController);
 const productController = require ('./controllers/product.controller');
 app.use ('/products', productController);
 
+app.get ('/', async (req, res) => {
+  return res.render ('index');
+});
+app.use (express.static ('public'));
 module.exports = app;
