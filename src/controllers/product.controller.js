@@ -22,6 +22,7 @@ router.get ('', async (req, res) => {
 });
 router.get ('/:id', async (req, res) => {
   try {
+    console.log ('id find');
     const product = await Product.findById (req.params.id).lean ().exec ();
 
     // return res.json (product);
@@ -30,7 +31,18 @@ router.get ('/:id', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+router.get ('/*/category', async (req, res) => {
+  try {
+    const products = await Product.find ({ageGroup: req.query.catg})
+      .lean ()
+      .exec ();
 
+    // return res.json ({product});
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
 router.patch ('/:id', async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate (req.params.id, req.body, {
