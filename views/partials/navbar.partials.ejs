@@ -135,8 +135,8 @@
     </div>
 
     <div class="names" id="opt2" onclick="nextPage('Women')">
-      <a href="">
-        <p class="name">WOMEN</p>
+      <a onclick="nextPage('Women')">
+        <p class="name" onclick="nextPage('Women')">WOMEN</p>
         <div class="ddown" id="WOMEN">
           <div>
             <ul>
@@ -250,8 +250,8 @@
       </a>
     </div>
     <div id="opt3" class="names" onclick="nextPage('Boys')">
-      <a href="">
-        <p class="name">KIDS</p>
+      <a onclick="nextPage('Boys')">
+        <p class="name" onclick="nextPage('Boys')">KIDS</p>
         <div class="ddown" id="KIDS">
           <div>
             <ul>
@@ -643,8 +643,9 @@
   <!-- </header> -->
 </div>
 <script>
-  function nextPage(query) {
-    window.location.href = `/products/*/category?catg=${query}`;
+  function nextPage(parameter) {
+    let query = "ageGroup";
+    window.location.href = `/products/category/${query}/${parameter}`;
   }
 </script>
 <!-- 
