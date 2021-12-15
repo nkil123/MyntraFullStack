@@ -1,15 +1,3 @@
-import {navbar} from './comps/navbar/navbar.js';
-
-import {foot} from './comps/footer/footer.js';
-
-let navvbar = document.getElementById ('navbar');
-console.log ('navbar:', navvbar);
-
-navvbar.innerHTML = navbar ();
-
-let footer = document.getElementById ('footer');
-
-footer.innerHTML = foot ();
 let hamburger = document.getElementById ('hamburger');
 let navigation = document.getElementById ('navigation');
 // navigation.style.visibility = 'visible';
@@ -111,7 +99,7 @@ opt6.onclick = () => {
 };
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
-  window.location.href = '/myntra/myntra.html';
+  window.location.href = '/mainProducts';
 };
 // opt6.onmouseover = function () {
 //   toshow6.style.visibility = 'visible';
@@ -124,7 +112,7 @@ logo.onclick = function () {
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  window.location.href = '/wishlist/wishlist.html';
+  window.location.href = '/wishlists';
 };
 
 let bag = document.getElementById ('bagI');
@@ -136,25 +124,25 @@ bag.onclick = function () {
 let take = document.getElementById ('take');
 
 take.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '/mainProducts/products';
 };
 let take2 = document.getElementById ('take2');
 
 take2.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '/mainProducts/products';
 };
 let take3 = document.getElementById ('take3');
 
 take3.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '/mainProducts/products';
 };
 let take4 = document.getElementById ('take4');
 
 take4.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '/mainProducts/products';
 };
 let take5 = document.getElementById ('take5');
 
 take5.onclick = function () {
-  window.location.href = '/ProductPage/productsPage.html';
+  window.location.href = '/mainProducts/products';
 };

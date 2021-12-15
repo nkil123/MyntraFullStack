@@ -307,7 +307,31 @@
             </div>
           </div>
 
-          <div id="products_cont"></div>
+          <div id="products_cont">
+            <% products.map((product) => { %>
+               <% let id = product._id %>
+              <div class="" onclick="nextPage('<%= product._id %>')">
+                
+                  <div class="img_div">
+                    
+                    <img src="<%= product.images[0] %>" alt="" id="proImg"/>
+                    <button class="wishbtn" onclick="findd()">
+                      <span class="material-icons">favorite_border</span>
+                      <span >WISHLIST</span>
+                    </button>
+                  </div>
+                  <div class="text_div">
+                    <p><b><%= product.brand %></b></p>
+                    <p class="title"><%= product.title %></p>
+                    <span><b><%= 'Rs.' + product.price + ' ' %></b></span>
+                    <span class="off_price"><%= 'Rs.' + product.off_price + ' ' %></span>
+                    <span class="discount"><%= '(' + product.discount + '%OFF)' %></span>
+                  </div>
+                                
+              </div>
+              <% }) %>
+
+          </div>
         </div>
       </div>
       <!-- <footer id="footer"></footer> -->
@@ -319,4 +343,5 @@
     </div>
   </body>
 </html>
-<script src="./javascript/productsPage.js" type="module"></script>
+<script src="/javascrippt/productsPage.js" ></script>
+<script src="/javascrippt/myntrascript.js" ></script>

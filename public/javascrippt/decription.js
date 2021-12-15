@@ -1,13 +1,13 @@
-import {navbar} from '/comps/navbar/navbar.js';
+// import {navbar} from '/comps/navbar/navbar.js';
 
-import {foot} from '/comps/footer/footer.js';
+// import {foot} from '/comps/footer/footer.js';
 
-let footer = document.getElementById ('footer');
+// let footer = document.getElementById ('footer');
 
-footer.innerHTML = foot ();
+// footer.innerHTML = foot ();
 
-let nav = document.getElementById ('navbar');
-nav.innerHTML = navbar ();
+// let nav = document.getElementById ('navbar');
+// nav.innerHTML = navbar ();
 
 // let data = {
 //   id: 21,
@@ -31,10 +31,20 @@ nav.innerHTML = navbar ();
 //   },
 // };
 
-let parent = document.getElementById ('Myn_pro');
+console.log (product);
+var parent = document.getElementById ('Myn_pro');
 
-let dat = JSON.parse (localStorage.getItem ('describe'));
-let data = dat[0];
+// let dat = JSON.parse (localStorage.getItem ('describe'));
+// let data = dat[0];
+
+// let data = 'from-backend';
+async function fiddd (id) {
+  let fetch = await fetch (`http://localhost:2233/products/${id}`);
+
+  let data = await fetch.json ();
+
+  return data;
+}
 
 function MyntraDecricption () {
   console.log ('data:', data);

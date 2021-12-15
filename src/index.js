@@ -21,4 +21,11 @@ app.use("/login",login);
 
 
 
+const wishlistController = require ('./controllers/wishlist.controller');
+app.use ('/wishlists', wishlistController);
+
+app.get ('/', async (req, res) => {
+  return res.render ('index');
+});
+app.use (express.static ('public'));
 module.exports = app;
