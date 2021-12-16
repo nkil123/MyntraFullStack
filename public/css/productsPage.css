@@ -103,7 +103,8 @@ span {
 }
 
 #products_cont > div:hover {
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px 1px rgba(0.1, 0.1, 0.2, 0.2);
+  
 }
 
 #products_cont > div > div > img {
@@ -114,7 +115,7 @@ span {
   position: relative;
   justify-content: center;
 }
-.wishbtn {
+#wishbtn {
   visibility: hidden;
   border: none;
   position: absolute;
@@ -129,21 +130,20 @@ span {
   width: 95%;
   z-index: 5;
 }
+
 .wishbtn span {
   text-align: center;
   align-items: center;
   vertical-align: middle;
-
   justify-content: center;
-  margin: 4px;
-  padding: 3px;
+  margin:0px 4px 0px 4px;
+  padding: 2px 3px;
 }
-.wishbtn > :nth-child(2) {
-  font-size: 17px;
+.wishname{
+  padding: 0px 3px;
+  vertical-align: top;
+}
 
-  /* background-color: red; */
-  /* margin-top: -25px; */
-}
 #products_cont > div > div > p {
   margin: 0.5px;
   padding: 0.5px;
