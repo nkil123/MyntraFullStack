@@ -310,14 +310,14 @@
           <div id="products_cont">
             <% products.map((product) => { %>
                <% let id = product._id %>
-              <div id="product_div" onclick="nextPage('<%= product._id %>')">
+              <div class="outer_div" onclick="nextPage('<%= product._id %>')">
                 
                   <div class="img_div">
                     
                     <img src="<%= product.images[0] %>" alt="" id="proImg"/>
-                    <button id="wishbtn"  onclick="findd()" >
+                    <button class="wishbtn"  onclick="findd()" >
                       <span class="material-icons">favorite_border</span>
-                      <span class="wishname">WISHLIST</span>
+                      <span >WISHLIST</span>
                     </button>
                    
                   </div>
