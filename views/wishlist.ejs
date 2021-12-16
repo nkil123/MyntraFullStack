@@ -21,7 +21,7 @@
     <title>Wishlist</title>
 
     <link rel="stylesheet" href="/css/myntra.css" />
-    <link rel="stylesheet" href="/javascrippt/wishlistcript.js" />
+    <link rel="stylesheet" href="/css/wshlist.css" />
   </head>
   <body>
     <!-- <div id="navbar"></div> -->
@@ -33,7 +33,7 @@
     <div id="title">
       <span>
         <b>My Wishlist</b>
-        <span id="quantity">0</span>
+        <span id="quantity"><%=wishlists.length%></span>
         items
       </span>
     </div>
@@ -41,19 +41,26 @@
       <% wishlists.map((item) => { %> <% let id = item._id %>
       <div class="eachI">
         <div class="imgd">
-          <div class="closeI"><span class="material-icons"> close </span></div>
-          <img src="<%`${item.images[0]}`%" /> alt" ="" />
+          <div class="closeI">
+            <span
+              class="material-icons"
+              onclick="removeItem('<%= item._id %>')"
+            >
+              close
+            </span>
+          </div>
+          <img src="<%=item.images[0] %>" alt" ="" />
         </div>
         <div class="desd">
-          <p>abcddee</p>
+          <p><%=item.title %></p>
           <p>
-            <span class="price">resadf</span>
-            <span class="pstrike">rtefa</span>
-            <span class="off">ftr</span>
+            <span class="price"><b><%= 'Rs.' + item.price + ' ' %></b></span>
+            <span class="pstrike"><%= 'Rs.' + item.off_price + ' ' %></span>
+            <span class="off"><%= '(' + item.discount + '%OFF)' %></span>
           </p>
         </div>
         <div class="bagd">
-          <a>MOVE TO BAG</a>
+          <a onclick="moveToBag('<%= item._id %>')">MOVE TO BAG</a>
         </div>
       </div>
 

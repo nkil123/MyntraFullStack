@@ -105,7 +105,7 @@
         let signup_form=document.getElementById("signup");
 
         let data={
-            name:signup_form.name.value,
+           fullName:signup_form.name.value,
             email:signup_form.email.value,
             password:signup_form.password.value,
             username:signup_form.username.value,
@@ -126,18 +126,19 @@
         }).then((res)=>{
             return res.json();
         })
-        .then((res)=>{
-            console.log(res);
-            let status=document.getElementById("status");
-            if(res._id){
+        .then((newres)=>{
+            console.log(newres);
+            // let status=document.getElementById("status");
+            // if(res._id){
                 
-                location.href="/signup-login/login";
+            //     location.href="/signup-login/login";
 
-            }else{
-                status.textContent="email already exist";
-                status.style.color="red";
+            // }else{
+            //     status.textContent="email already exist";
+            //     status.style.color="red";
 
-            }
+            // }
+            // return res;
         })
 
     }

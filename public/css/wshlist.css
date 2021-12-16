@@ -122,7 +122,7 @@ span {
   /* width: 100%; */
   position: relative;
   /* top: 120px; */
-  margin: 100px 100px 0px 100px;
+  margin: 40px 100px 0px 100px;
   /* background-color: red; */
   padding: 20px;
   font-size: 20px;
@@ -171,8 +171,9 @@ span {
   width: 24px;
   top: 10px;
   right: 10px;
-  background-color: #e1e2e3;
+  background-color: #f8f8f8;
   border-radius: 50%;
+  cursor: pointer;
 }
 .closeI span {
   color: #696c78;
@@ -209,9 +210,20 @@ span {
   padding: 10px;
   border: 1px solid rgb(230, 229, 229);
   color: #fa4c63;
+  cursor: pointer;
 }
 .eachI .bagd a {
   font-weight: 600;
+}
+
+.pstrike {
+  font-size: 12px;
+  color: grey;
+  text-decoration: line-through;
+}
+.off {
+  font-size: 12px;
+  color: tomato;
 }
 #dprofile {
   visibility: hidden;
