@@ -28,6 +28,9 @@ app.use ('/wishlists', wishlistController);
 const productController = require ('./controllers/product.controller');
 app.use ('/products', productController);
 
+const bagController = require ('./controllers/bag.controller');
+app.use ('/bags', bagController);
+
 app.get ('/', async (req, res) => {
   return res.render ('index');
 });

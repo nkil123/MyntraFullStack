@@ -38,13 +38,11 @@
       </span>
     </div>
     <div id="wishItems">
+      <% wishlists.map((item) => { %> <% let id = item._id %>
       <div class="eachI">
         <div class="imgd">
           <div class="closeI"><span class="material-icons"> close </span></div>
-          <img
-            src="https://assets.myntassets.com/f_webp,w_200,c_limit,fl_progressive,dpr_2.0/assets/images/14334768/2021/6/15/acc52432-c491-4b74-94b2-8e3722f9a9c21623736049296JeansLevisMenTrousersLevisMenTrousersLevisMenTrousersLevisMe2.jpg"
-            alt=""
-          />
+          <img src="<%`${item.images[0]}`%" /> alt" ="" />
         </div>
         <div class="desd">
           <p>abcddee</p>
@@ -58,6 +56,8 @@
           <a>MOVE TO BAG</a>
         </div>
       </div>
+
+      <%})%>
     </div>
     <!-- <footer id="footer"></footer> -->
     <!------- Navbar Starts Here ----->

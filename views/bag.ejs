@@ -17,7 +17,7 @@
     />
     <a href="https://icons8.com/icon/88000/down-button"></a>
   </head>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/bagstyle.css" />
   <body>
     <div class="container">
       <div class="div1">
@@ -46,8 +46,6 @@
 
       <div class="div2">
         <div class="div2a">
-          
-
           <div class="div2a2">
             <div class="offersList" id="sdiv">
               <ul>
@@ -102,14 +100,17 @@
               >
               <div>
                 <span class="btns"
-                  ><button onclick="clearData()"><strong>REMOVE</strong></button></span
+                  ><button onclick="clearData()">
+                    <strong>REMOVE</strong>
+                  </button></span
                 ><span class="btns move"
-                  ><button >
+                  ><button>
                     <strong>MOVE TO WISHLIST</strong>
                   </button></span
                 >
               </div>
             </div>
+            <%"here ejs part starts"%>
           </div>
           <div class="addMore">
             <img src="/Images/wish.jpg" class="wish" /><a
@@ -168,9 +169,10 @@
               <div class="totalMRP">
                 <div>Coupon Discount</div>
                 <div id="show-discount">
-                  <button onclick="couponApply()" class="applyCoupon">Apply Coupon</button>
+                  <button onclick="couponApply()" class="applyCoupon">
+                    Apply Coupon
+                  </button>
                 </div>
-                
               </div>
               <div class="totalMRP">
                 <div>
@@ -193,7 +195,9 @@
               <img src="/Images/noConvFee.jpg" class="noConvFee" />
             </div>
 
-            <button onclick="gotoaddress()" class="place-btn">PLACE ORDER</button>
+            <button onclick="gotoaddress()" class="place-btn">
+              PLACE ORDER
+            </button>
           </div>
         </div>
       </div>
@@ -202,41 +206,35 @@
       <div>
         <h5>APPLY COUPON</h5>
         <button onclick="closeWindow()">close</button>
-        
-
       </div>
       <div>
-        <hr>
+        <hr />
       </div>
-      
+
       <div>
         <div>
-          <input type="checkbox" name="myntra10" id="myntra10">
+          <input type="checkbox" name="myntra10" id="myntra10" />
           <label for="">MYNTRA10</label>
           <p>10% discount</p>
         </div>
-        
+
         <div>
-          <input type="checkbox" name="myntra10" id="myntra20">
+          <input type="checkbox" name="myntra10" id="myntra20" />
           <label for="">MYNTRA20</label>
           <p>20% discount</p>
         </div>
-        
+
         <div>
-          <input type="checkbox" name="myntra10" id="myntra30">
+          <input type="checkbox" name="myntra10" id="myntra30" />
           <label for="">MYNTRA30</label>
           <p>30% discount</p>
         </div>
-        
-        
-
       </div>
       <div>
         <button onclick="getcouponDiscount()">APPLY</button>
       </div>
-
     </div>
   </body>
 </html>
 
-<script src="script.js"></script>
+<script src="/public/javascrippt/bagscript.js"></script>

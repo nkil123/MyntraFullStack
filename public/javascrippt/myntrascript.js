@@ -94,9 +94,9 @@ opt5.onmouseleave = function () {
 let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
-opt6.onclick = () => {
-  window.location.href = '/loginsignup/login/login.html';
-};
+// opt6.onclick = () => {
+//   window.location.href = '/loginsignup/login/login.html';
+// };
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
   window.location.href = '/mainProducts';
@@ -118,7 +118,7 @@ wishlist.onclick = function () {
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bag/bag.html';
+  window.location.href = '/bags';
 };
 
 let take = document.getElementById ('take');
