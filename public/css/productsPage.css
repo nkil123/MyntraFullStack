@@ -250,6 +250,8 @@ span {
 #totalPage{
   padding: 17px 0px; 
   margin-right: 17%;
+  font-size: 14px;
+  color: #777;
 }
 
 .pagination ul {
