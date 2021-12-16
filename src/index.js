@@ -2,6 +2,8 @@ const express = require ('express');
 
 const numberVerifyController = require ('./controllers/signup-login/number-verify.controller');
 
+const singleProductController = require ("./controllers/singleproduct.controller");
+
 const {
   register,
   login,
@@ -18,6 +20,8 @@ app.use ('/signup-login', numberVerifyController);
 app.use ('/signup', register);
 
 app.use ('/login', login);
+
+app.use("/single-product", singleProductController);
 
 const mainProductController = require ('./controllers/mainProduct.controller');
 app.use ('/mainProducts', mainProductController);

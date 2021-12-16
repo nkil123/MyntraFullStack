@@ -1,5 +1,10 @@
 function nextPage (id) {
-  window.location.href = `/products/${id}`;
+
+  
+        window.location.href = `/products/${id}`;
+
+          
+  
 }
 
 function filter (query, parameter) {
