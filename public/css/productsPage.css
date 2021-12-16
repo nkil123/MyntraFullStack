@@ -292,12 +292,15 @@ span {
   
 }
 
-.pageNo:hover,
-.pageNo:hover .active a
+.pageNo:hover
 {
   background-color: #333;
   color: #fff;
 
+}
+.active{
+  background-color: #fff;
+  color: #333;
 }
 
 .pagination ul li:first-child{
