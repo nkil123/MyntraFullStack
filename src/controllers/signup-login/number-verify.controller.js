@@ -15,7 +15,7 @@ router.get ('/signup', (req, res) => {
 });
 
 router.get ('/login', (req, res) => {
-  return res.render ('index');
+  return res.render ('wishlist');
 });
 
 module.exports = router;
