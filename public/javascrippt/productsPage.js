@@ -1,38 +1,9 @@
-function nextPage (product) {
-    let data = product;
-  
-    data = JSON.stringify(data);
-    console.log(data);
-    // console.log(fetch("http://localhost:2233/single-product"));
-  
-    fetch(`http://localhost:2233/products`,{
-              method: 'POST',
-              body: data,
-              headers:{
-                  'Content-Type': 'application/json'
-              }
-          }).then((res)=>{
-              return res.json();
-          }).then((res)=>{
-            console.log(res);
-            if(res._id){
-               window.location.href = `/products/${data}`;
-  
-            }else{
-              console.log("aaaaaaa");
-            }
-            
-  
-          });
-    
-  }
-  
 
+function nextPage (id) {
+  window.location.href = `/products/${id}`;
+  let p_div = document.getElementById (id);
+}
 
-
-// function nextPage (id) {
-//   window.location.href = `/products/${id}`;
-// }
 
 function filter (query, parameter) {
   if (query === 'category') {
@@ -57,38 +28,41 @@ function sortt (val) {
   window.location.href = `/products/sort/${val}`;
 }
 
-
-
-let product_div = document.getElementById("product_div")
-
-product_div.onmouseenter = function () {
-
-  let wishbtn = document.getElementById("wishbtn")
-
-  wishbtn.style.visibility = "visible"
-
-  wishbtn.onclick = function () {
-
-    let material_icons = document.getElementsByClassName('material-icons')
-    material_icons.innerHTML = 'favorite_border'
-
-
-    wishbtn.style.backgroundColor = "#535766"
-    wishbtn.innerText = "WISHLISTED"
-    wishbtn.style.color = 'white'
-    material_icons.backgroundColor = "red"
-  }
-
+function enterr (id) {
+  let p_div = document.getElementById (id);
+  console.log (p_div);
+  p_div.style.visibility = 'visible';
 }
 
-product_div.onmouseleave = function () {
+function leavee (id) {
+  let p_div = document.getElementById (id);
 
-  let wishbtn = document.getElementById("wishbtn")
-
-  wishbtn.style.visibility = "hidden"
+  p_div.style.visibility = 'hidden';
 }
 
+// let product_div = document.getElementsByClassName ('product_div');
 
+// product_div.onmouseenter = function () {
+//   let wishbtn = document.getElementsByClassName ('wishbtn');
+
+//   wishbtn.style.visibility = 'visible';
+
+//   wishbtn.onclick = function () {
+//     let material_icons = document.getElementsByClassName ('material-icons');
+//     material_icons.innerHTML = 'favorite_border';
+
+//     wishbtn.style.backgroundColor = '#535766';
+//     wishbtn.innerText = 'WISHLISTED';
+//     wishbtn.style.color = 'white';
+//     material_icons.backgroundColor = 'red';
+//   };
+// };
+
+// product_div.onmouseleave = function () {
+//   let wishbtn = document.getElementsByClassName ('wishbtn');
+
+//   wishbtn.style.visibility = 'hidden';
+// };
 
 //----------------------------------------------------------------------------------------------
 // function show_products (products) {
@@ -129,16 +103,16 @@ product_div.onmouseleave = function () {
 //   wishbtn.style.visibility = 'hidden';
 // };
 
-    // wishbtn.onclick = function () {
-    //   wishicon.style.background = 'red';
-    //   wishname.innerHTML = 'WISHLISTED';
-    //   wishname.style.color = 'white';
+// wishbtn.onclick = function () {
+//   wishicon.style.background = 'red';
+//   wishname.innerHTML = 'WISHLISTED';
+//   wishname.style.color = 'white';
 
-    //   wishbtn.style.background = '#565759';
-    //   wishname.style.background = '#565759';
+//   wishbtn.style.background = '#565759';
+//   wishname.style.background = '#565759';
 
-    //   addtoWishlist (product);
-    // };
+//   addtoWishlist (product);
+// };
 
 //     image_div.append (img, wishbtn);
 
@@ -819,5 +793,3 @@ product_div.onmouseleave = function () {
 //   .catch (err => {
 //     console.error (err);
 //   });
-
-
