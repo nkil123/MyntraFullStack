@@ -122,7 +122,7 @@ bag.onclick = function () {
 };
 
 let take = document.getElementById ('take');
-
+console.log(take);
 take.onclick = function () {
   window.location.href = '/mainProducts/products';
 };

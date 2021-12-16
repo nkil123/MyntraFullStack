@@ -1,6 +1,38 @@
-function nextPage (id) {
-  window.location.href = `/products/${id}`;
-}
+function nextPage (product) {
+    let data = product;
+  
+    data = JSON.stringify(data);
+    console.log(data);
+    // console.log(fetch("http://localhost:2233/single-product"));
+  
+    fetch(`http://localhost:2233/products`,{
+              method: 'POST',
+              body: data,
+              headers:{
+                  'Content-Type': 'application/json'
+              }
+          }).then((res)=>{
+              return res.json();
+          }).then((res)=>{
+            console.log(res);
+            if(res._id){
+               window.location.href = `/products/${data}`;
+  
+            }else{
+              console.log("aaaaaaa");
+            }
+            
+  
+          });
+    
+  }
+  
+
+
+
+// function nextPage (id) {
+//   window.location.href = `/products/${id}`;
+// }
 
 function filter (query, parameter) {
   if (query === 'category') {
