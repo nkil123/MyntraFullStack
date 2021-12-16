@@ -1,9 +1,7 @@
-
 function nextPage (id) {
   window.location.href = `/products/${id}`;
   let p_div = document.getElementById (id);
 }
-
 
 function filter (query, parameter) {
   if (query === 'category') {
@@ -38,6 +36,10 @@ function leavee (id) {
   let p_div = document.getElementById (id);
 
   p_div.style.visibility = 'hidden';
+}
+
+function page (num) {
+  window.location.href = `/products?page=${num}`;
 }
 
 // let product_div = document.getElementsByClassName ('product_div');
