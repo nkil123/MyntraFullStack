@@ -94,9 +94,9 @@ opt5.onmouseleave = function () {
 let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
-opt6.onclick = () => {
-  window.location.href = '/loginsignup/login/login.html';
-};
+// opt6.onclick = () => {
+//   window.location.href = '/loginsignup/login/login.html';
+// };
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
   window.location.href = '/mainProducts';
@@ -118,7 +118,7 @@ wishlist.onclick = function () {
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bag/bag.html';
+  window.location.href = '/bags';
 };
 
 let take = document.getElementById ('take');
@@ -146,3 +146,23 @@ let take5 = document.getElementById ('take5');
 take5.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}

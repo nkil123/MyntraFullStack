@@ -32,7 +32,7 @@ router.get ('/products', async (req, res) => {
       .lean ()
       .exec ();
     let products = mainProducts[0].products;
-    // return res.json (products);
+    // return res.json (mainProducts);
     return res.render ('productsPage', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, status: 'Failed'});
