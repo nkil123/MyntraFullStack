@@ -1,130 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./styles/navbar_style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="./styles/navbar_style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <style>
-        body{
-            background-color: rgb(255, 240, 239);
-        }
-        #navbar{
-            height: 80px;
-            margin-bottom:22px;
+      body {
+        background-color: rgb(255, 240, 239);
+      }
+      #navbar {
+        height: 80px;
+        margin-bottom: 22px;
+      }
+      #login-container {
+        max-width: 400px;
+        margin: auto;
+        background-color: white;
+        height: 823px;
+        margin-top: 95px;
+      }
+      #login-container > div:nth-child(1) {
+        height: 230px;
+        padding: 9% 14% 0 14%;
+      }
+      #login-container > div:nth-child(2) {
+        height: 360px;
+        padding: 0 14%;
+      }
+      #login-container img {
+        width: 100%;
+        height: 196px;
+      }
+      #login-container h2 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .btn1 {
+        height: 48px;
+        width: 139.828px;
+        border: 1px solid #d4d5d9;
+        background-color: white;
+        box-sizing: border-box;
+        border-radius: 2px;
 
-        }
-        #login-container{
-            max-width: 400px;
-            margin: auto;
-            background-color: white;
-            height:823px ;
-            margin-top: 95px;
-        }
-        #login-container>div:nth-child(1){
-            height: 230px;
-            padding: 9% 14% 0 14%;
-        }
-        #login-container>div:nth-child(2){
-            height: 360px;
-            padding: 0 14%;
-        }
-        #login-container img{
-            width: 100%;
-            height: 196px;
-        }
-        #login-container h2{
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .btn1{
-            
-            height: 48px;
-            width: 139.828px;
-            border: 1px solid #D4D5D9;
-            background-color: white;
-            box-sizing: border-box;
-            border-radius: 2px;
-            
-            font-family:Arial, Helvetica, sans-serif ;
-            font-weight: bolder;
-            margin-right: 2px;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-        .btn2{
-            display: block;
-            width: 288px;
-            margin-top: 10px;
-        }
-        #login-container .horizontal{
-            display: flex;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            
-        }
-        #login-container .horizontal >div:nth-child(1){
-            flex-basis: 45%;
-            margin-top: 10px;
-        }
-        #login-container .horizontal >div:nth-child(2){
-            flex-basis: 10%;
-            text-align: center;
-            font-size: 16px;
-            color: #535766;
-        }
-        #login-container .horizontal >div:nth-child(3){
-            flex-basis: 45%;
-            margin-top: 10px;
-        }
-        
-        
-        
-        
-        
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        margin-right: 2px;
+        letter-spacing: 1px;
+        cursor: pointer;
+      }
+      .btn2 {
+        display: block;
+        width: 288px;
+        margin-top: 10px;
+      }
+      #login-container .horizontal {
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      #login-container .horizontal > div:nth-child(1) {
+        flex-basis: 45%;
+        margin-top: 10px;
+      }
+      #login-container .horizontal > div:nth-child(2) {
+        flex-basis: 10%;
+        text-align: center;
+        font-size: 16px;
+        color: #535766;
+      }
+      #login-container .horizontal > div:nth-child(3) {
+        flex-basis: 45%;
+        margin-top: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="nav"></div>
     <div id="login-container">
-        <div>
-            <img src="https://constant.myntassets.com/pwa/assets/img/al_banner.png" alt="">
-            
+      <div>
+        <img
+          src="https://constant.myntassets.com/pwa/assets/img/al_banner.png"
+          alt=""
+        />
+      </div>
+      <div>
+        <h2>Already have an account?</h2>
+
+        <button onclick="loginPage()" class="btn1 btn2">
+          LOGIN WITH USERNAME
+        </button>
+        <div class="horizontal">
+          <div><hr /></div>
+          <div>OR</div>
+          <div><hr /></div>
         </div>
-        <div>
-            <h2>Already have an account?</h2>
-            
-            <button onclick="loginPage()" class="btn1 btn2">LOGIN WITH USERNAME</button>
-            <div class="horizontal">
-                <div><hr></div>
-                <div>OR</div>
-                <div><hr></div>
-                 
-            </div>
-            <h2>New to Myntra?</h2>
-            <button onclick="signupPage()" class="btn1 btn2">CREATE NEW ACCOUNT</button>
-        </div>
+        <h2>New to Myntra?</h2>
+        <button onclick="signupPage()" class="btn1 btn2">
+          CREATE NEW ACCOUNT
+        </button>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>
 
 <script type="module">
-    import { navbar } from "/navbar/navbar.js";
+  import { navbar } from "/navbar/navbar.js";
 
-    let nav = document.getElementById("nav");
-    nav.innerHTML = navbar();
-    
+  let nav = document.getElementById("nav");
+  nav.innerHTML = navbar();
 </script>
 
 <script>
-    function loginPage(){
-        location.href="/login/signup-login";
-    }
+  function loginPage() {
+    location.href = "/signup-login/login";
+  }
 
-    function signupPage(){
-        location.href="/signup-login/signup";
-    }
+  function signupPage() {
+    location.href = "/signup-login/signup";
+  }
 </script>

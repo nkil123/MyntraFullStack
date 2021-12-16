@@ -15,7 +15,7 @@ router.get ('/signup', (req, res) => {
 });
 
 router.get ('/login', (req, res) => {
-  return res.render ('wishlist');
+  return res.render ('login_validation.ejs');
 });
 
 module.exports = router;
