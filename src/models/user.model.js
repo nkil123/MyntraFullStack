@@ -10,6 +10,13 @@ const userSchema = new Schema (
     username: {type: String, required: true},
     mobile: {type: Number, required: true},
     description: {type: String, required: true},
+    bagItems: [
+      {
+        productId: {type: String, required: false},
+        count: {type: Number, required: true},
+      },
+    ],
+    wishItems: [{productId: {type: String, required: false}}],
   },
   {
     versionKey: false,
