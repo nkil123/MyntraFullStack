@@ -128,7 +128,7 @@ span {
   /* left: 3px; */
   /* height: 28px; */
   width: 95%;
-  z-index: 5;
+  z-index: 15;
 }
 
 .wishbtn span {
@@ -239,4 +239,90 @@ span {
 .off_price{
   font-size: 12px;
   text-decoration :line-through;
+}
+
+
+.paginationDiv{
+  display: flex;
+  justify-content: center;
+}
+
+#totalPage{
+  margin-right: 13%;
+}
+
+.pagination{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  min-height: 300px;
+}
+
+.pagination ul{
+
+  position: relative;
+  background: #fff;
+  display: flex;
+  padding: 10px 20px;
+  
+
+}
+
+.pagination ul li{
+  list-style: none;
+  line-height: 20px;
+  margin: 0 5px;
+}
+
+.pagination ul li .pageNo{
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  
+}
+
+.pagination ul li a{
+  display: block;
+  text-decoration: none;
+  color:  black;
+  font-weight:bold;
+  
+  
+}
+
+.pageNo:hover,
+.pageNo:hover .active a
+{
+  background-color: #333;
+  color: #fff;
+
+}
+
+.pagination ul li:first-child{
+  margin-right: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding:10px 25px 0px 25px;
+}
+
+.pagination ul li:first-child:hover{
+  border: 1px solid black;
+}
+
+.pagination ul li:last-child:hover{
+  border: 1px solid black;
+}
+
+.pagination ul li:last-child{
+  margin-left: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid gray;
+  padding:10px 25px 0px 25px;
+  border-radius: 5px;
+  
 }

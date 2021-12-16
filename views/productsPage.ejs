@@ -310,9 +310,9 @@
           <div id="products_cont">
             <% products.map((product) => { %>
                <% let id = product._id %>
-              <div id="product_div" onclick="nextPage('<%= product._id %>')">
+              <div id="product_div" >
                 
-                  <div class="img_div">
+                  <div class="img_div"  onclick="nextPage('<%= product._id %>')">
                     
                     <img src="<%= product.images[0] %>" alt="" id="proImg"/>
                     <button id="wishbtn"  onclick="findd()" >
@@ -334,6 +334,22 @@
 
           </div>
         </div>
+      </div>
+
+      <div class="paginationDiv">
+     <div class="pagination" id="totalPage"><p>Page 2 of 10</p></div>
+     <div  class="pagination">
+      <ul>
+        <li><a href="" class="priv">< Previous</a></li>
+        <li><a href="" class="pageNo active">1</a></li>
+        <li><a href="" class="pageNo">2</a></li>
+        <li><a href="" class="pageNo">3</a></li>
+        <li><a href="" class="pageNo">4</a></li>
+        <li><a href="" class="pageNo">5</a></li>
+        <li><a href="" class="pageNo">6</a></li>
+        <li><a href="" class="next">Next ></a></li>
+      </ul>
+     </div>
       </div>
       <!-- <footer id="footer"></footer> -->
         <!------- Navbar Starts Here ----->
