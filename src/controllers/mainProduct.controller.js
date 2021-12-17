@@ -11,14 +11,17 @@ router.post ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+
+
 router.get ('', async (req, res) => {
   try {
     const mainProducts = await MainProduct.find ()
       .populate ('products')
       .lean ()
       .exec ();
-
+     
     return res.render ('index', {mainProducts});
+    
     // return res.status (201).send ({mainProduct: mainProduct});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
@@ -31,6 +34,7 @@ router.get ('/products', async (req, res) => {
       .populate ('products')
       .lean ()
       .exec ();
+      console.log(mainProducts);
     let products = mainProducts[0].products;
     // return res.json (mainProducts);
     return res.render ('productsPage', {products});
@@ -39,4 +43,16 @@ router.get ('/products', async (req, res) => {
   }
 });
 
+// router.get("/products", async (req, res)=>{
+//   try {
+//       const page = +req.query.page || 1;
+//        const size = +req.query.limit || 20;
+//        const offset = (page - 1)*size;
+//         const mainProducts = await Mainproduct.find({}).populate ('products').skip(offset).limit(size).lean().exec();
+//           let products = mainProducts[0].products;
+//             return res.render ('productsPage', {products});
+//   } catch(e){
+//       return res.status(500).json({message:e.message, status: "Failed"});
+//   }
+// });
 module.exports = router;
