@@ -1,14 +1,4 @@
-
-
-
 var parent = document.getElementById ('Myn_pro');
-
-
-
-
-
-
-
 
 function MyntraDecricption () {
   console.log ('data:', data);
@@ -113,7 +103,7 @@ function MyntraDecricption () {
     '<ion-icon name="heart-outline"></ion-icon>' + ' ' + 'WISHLIST';
   wish_list.setAttribute ('id', 'wishlist');
   wish_list.onclick = function () {
-    addtoWishlist (data);
+    addtoWishlist (data._id);
   };
 
   let size_chart_22 = document.createElement ('div');
@@ -431,4 +421,77 @@ function hide_pin () {
     disclaimer.style.display = 'block';
     alert ('! Please enter a valid pincode');
   }
+}
+
+async function addtoWishlist (id) {
+  let token = JSON.parse (localStorage.getItem ('token'));
+  let user = await findId ();
+  let nuser = await user.json ();
+  console.log ('user', nuser);
+  let wishlistArray = nuser.wishItems;
+
+  let dts = {
+    wishItems: [id],
+  };
+  let data_to_send = JSON.stringify (dts);
+
+  fetch (`http://localhost:2233/*/user/add`, {
+    method: 'PATCH',
+    body: data_to_send,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then (k => {
+      return k.json ();
+    })
+    .then (res => {
+      console.log (res);
+    })
+    .catch (err => {
+      console.log (err);
+    });
+}
+
+async function findId () {
+  let token = JSON.parse (localStorage.getItem ('token'));
+  let user = await fetch (`http://localhost:2233/*/user`, {
+    headers: {
+      'Content-Type': 'application/json',
+
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return user;
+}
+
+async function addtoBag (data) {
+  let token = JSON.parse (localStorage.getItem ('token'));
+  let userId = await findId ();
+  let newd = await userId.json ();
+
+  let newData = {
+    bagItems: [{productId: data._id}],
+  };
+  let data_to_send = JSON.stringify (newData);
+  console.log ('data_to_send:', data_to_send);
+  fetch (`http://localhost:2233/*/user/add`, {
+    method: 'PATCH',
+    body: data_to_send,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then (k => {
+      return k.json ();
+    })
+    .then (res => {
+      console.log (res);
+    })
+    .catch (err => {
+      console.log (err);
+    });
 }

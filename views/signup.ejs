@@ -124,24 +124,25 @@
             method: 'POST',
             body: data,
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                
             }
         }).then((res)=>{
             return res.json();
         })
-        .then((newres)=>{
-            console.log(newres);
-            // let status=document.getElementById("status");
-            // if(res._id){
+        .then((res)=>{
+            console.log(res);
+            let status=document.getElementById("status");
+            if(res._id){
                 
-            //     location.href="/signup-login/login";
+                location.href="/signup-login/login";
 
-            // }else{
-            //     status.textContent="email already exist";
-            //     status.style.color="red";
+            }else{
+                status.textContent="email already exist";
+                status.style.color="red";
 
-            // }
-            // return res;
+            }
+            return res;
         })
 
     }

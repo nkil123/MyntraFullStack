@@ -1,4 +1,5 @@
 const express = require ('express');
+const authenticate = require ('../middlewares/authenticate');
 const Bag = require ('../models/bag.model');
 const router = express.Router ();
 
@@ -15,7 +16,8 @@ router.get ('', async (req, res) => {
   try {
     const bags = await Bag.find ().lean ().exec ();
 
-    return res.render ('bag', {bags});
+    // return res.json (bags);
+    return res.render ('bag', {bags: JSON.stringify (bags)});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }

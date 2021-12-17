@@ -94,9 +94,9 @@ opt5.onmouseleave = function () {
 let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
-// opt6.onclick = () => {
-//   window.location.href = '/loginsignup/login/login.html';
-// };
+opt6.onclick = () => {
+  window.location.href = '/loginsignup/login/login.html';
+};
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
   window.location.href = '/mainProducts';
@@ -112,17 +112,25 @@ logo.onclick = function () {
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  window.location.href = '/signup-login';
+  if (localStorage.getItem ('token') === null) {
+    window.location.href = '/signup-login';
+  } else {
+    window.location.href = '/wishlists';
+  }
 };
 
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bags';
+  if (localStorage.getItem ('token') === null) {
+    window.location.href = '/signup-login';
+  } else {
+    window.location.href = '/bags';
+  }
 };
 
 let take = document.getElementById ('take');
-console.log(take);
+
 take.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
@@ -168,3 +176,4 @@ function showSlides () {
   dots[slideIndex - 1].className += ' active';
   setTimeout (showSlides, 2000); // Change image every 2 seconds
 }
+showSlides ();
