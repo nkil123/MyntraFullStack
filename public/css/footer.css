@@ -1,0 +1,68 @@
+
+
+.info{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.info div{
+    display : flex;
+    flex-direction: column;
+    margin: 0 2%;
+    line-height: 30px;
+}
+
+.heading{
+    font-weight: bold;
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.firstTwoColumn a {
+    font-size: 15px;
+    text-decoration: none;
+    color: #696B79;
+}
+
+#appStore{
+   display: flex;
+   flex-direction: row;
+}
+
+.imgDiv{
+    height: 42px;
+    width: 120px;
+    margin: 8px;  
+}
+
+.imgDiv img{
+    width: 100%;
+}
+
+#keepInTouch{ 
+    display: flex;
+    flex-direction: row;
+}
+#flex {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+}
+#flex span{
+   
+     font-size: 16px;
+     line-height: 20px;
+}
+#flex2 {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    margin: 20px 0;
+}
+#flex2 span{
+   
+     font-size: 16px;
+     line-height: 20px;
+}

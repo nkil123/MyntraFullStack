@@ -24,9 +24,10 @@ router.get ('/:id', async (req, res) => {
   try {
     console.log ('id find');
     const product = await Product.findById (req.params.id).lean ().exec ();
+    console.log(product);
 
     // return res.json (product);
-    return res.render ('description.ejs', {product});
+    return res.render ('description', { product: JSON.stringify(product)});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }

@@ -104,7 +104,6 @@ span {
 
 #products_cont > div:hover {
   box-shadow: 1px 1px 1px 1px rgba(0.1, 0.1, 0.2, 0.2);
-  
 }
 
 #products_cont > div > div > img {
@@ -115,7 +114,7 @@ span {
   position: relative;
   justify-content: center;
 }
-#wishbtn {
+.wishbtn {
   visibility: hidden;
   border: none;
   position: absolute;
@@ -125,10 +124,9 @@ span {
   align-items: center;
   vertical-align: middle;
   justify-content: center;
-  /* left: 3px; */
-  /* height: 28px; */
+
   width: 95%;
-  z-index: 5;
+  z-index: 15;
 }
 
 .wishbtn span {
@@ -136,10 +134,10 @@ span {
   align-items: center;
   vertical-align: middle;
   justify-content: center;
-  margin:0px 4px 0px 4px;
+  margin: 0px 4px 0px 4px;
   padding: 2px 3px;
 }
-.wishname{
+.wishname {
   padding: 0px 3px;
   vertical-align: top;
 }
@@ -231,12 +229,89 @@ span {
   background-color: #e9e9ed;
 }
 
-.discount{
+.discount {
   font-size: 12px;
   color: tomato;
 }
 
-.off_price{
+.off_price {
   font-size: 12px;
-  text-decoration :line-through;
+  text-decoration: line-through;
+}
+
+
+.paginationDiv{
+
+  display: flex;
+  justify-content: center;
+
+  height: 170px;
+
+}
+
+#totalPage{
+  padding: 17px 0px; 
+  margin-right: 17%;
+  font-size: 14px;
+  color: #777;
+}
+
+.pagination ul {
+  position: relative;
+  background: #fff;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+}
+
+.pagination ul li{
+
+  list-style: none;
+  line-height: 33px;
+  margin: 0 5px; 
+}
+.pagination ul li .pageNo{
+  width: 28px;
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+}
+
+.pagination ul li a {
+
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+
+}
+.pagination ul li .pageNo:hover{
+  border: 1px solid #E0E0E0;
+}
+  
+.pagination ul li:first-child{
+  margin-right: 50px;
+  font-weight: 700;
+  font-size: 16px;
+
+  padding: 5px 20px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+.pagination ul li:last-child{
+  margin-left: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 5px 20px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  vertical-align: middle
+}
+
+.pagination ul li:first-child:hover{
+  border: 2px solid black
+}
+.pagination ul li:last-child:hover{
+  border: 2px solid black
 }

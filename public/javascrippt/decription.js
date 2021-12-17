@@ -1,50 +1,14 @@
-// import {navbar} from '/comps/navbar/navbar.js';
 
-// import {foot} from '/comps/footer/footer.js';
 
-// let footer = document.getElementById ('footer');
 
-// footer.innerHTML = foot ();
-
-// let nav = document.getElementById ('navbar');
-// nav.innerHTML = navbar ();
-
-// let data = {
-//   id: 21,
-//   title: 'White & Black Sheath Dress & Belt',
-//   price: '903',
-//   gender: 'Women',
-//   description: 'White and black typography print sheath dress,Round neck,Sleeveless, no sleeves,Above knee length in,straight hem,Comes with a belt',
-//   brand: 'URBANIC',
-//   color: 'White & Black',
-//   discount: '35',
-//   off_price: 1390,
-//   images: {
-//     image1: 'https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15286934/2021/9/2/817dc96e-f893-47aa-824e-98d91f396f261630562359704EarringsURBANICWomenJacketsURBANICWomenCoatsURBANICWomenDres1.jpg',
-//     image2: 'https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15286934/2021/9/2/90a66afe-feb2-40c1-a699-c81cd7a09fbd1630562359723EarringsURBANICWomenJacketsURBANICWomenCoatsURBANICWomenDres2.jpg',
-//     image3: 'https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15286934/2021/9/2/a5bf4c69-c5c9-4d75-a2e7-e3bcc92114101630562359741EarringsURBANICWomenJacketsURBANICWomenCoatsURBANICWomenDres3.jpg',
-//     image4: 'https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/15286934/2021/9/2/179c0b82-63bf-4388-9feb-aec125d4579b1630562359760EarringsURBANICWomenJacketsURBANICWomenCoatsURBANICWomenDres4.jpg',
-//   },
-//   rating: {
-//     rate: 4.2,
-//     count: 220,
-//   },
-// };
-
-console.log (product);
 var parent = document.getElementById ('Myn_pro');
 
-// let dat = JSON.parse (localStorage.getItem ('describe'));
-// let data = dat[0];
 
-// let data = 'from-backend';
-async function fiddd (id) {
-  let fetch = await fetch (`http://localhost:2233/products/${id}`);
 
-  let data = await fetch.json ();
 
-  return data;
-}
+
+
+
 
 function MyntraDecricption () {
   console.log ('data:', data);
@@ -103,21 +67,21 @@ function MyntraDecricption () {
 
   let img_1 = document.createElement ('img');
 
-  img_1.src = data.images.image1;
+  img_1.src = data.images[0];
 
   img_1.setAttribute ('class', 'imge');
 
   let img_2 = document.createElement ('img');
-  img_2.src = data.images.image2;
+  img_2.src = data.images[1];
   img_2.setAttribute ('class', 'imge');
 
   let img_3 = document.createElement ('img');
-  img_3.src = data.images.image3;
+  img_3.src = data.images[2];
 
   img_3.setAttribute ('class', 'imge');
 
   let img_4 = document.createElement ('img');
-  img_4.src = data.images.image4;
+  img_4.src = data.images[3];
 
   img_4.setAttribute ('class', 'imge');
 

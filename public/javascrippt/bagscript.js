@@ -20,6 +20,18 @@ function showFunction () {
 }
 
 let items = document.getElementById ('items');
+//
+
+await function datas(){
+  
+}
+
+
+
+
+
+
+
 
 let data=JSON.parse(localStorage.getItem("cart"));
 

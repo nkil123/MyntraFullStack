@@ -310,12 +310,14 @@
           <div id="products_cont">
             <% products.map((product) => { %>
                <% let id = product._id %>
-              <div id="product_div" onclick="nextPage('<%= product._id %>')">
+
+              <div class="outer_div"  onclick="nextPage('<%= product._id %>'); event.stopPropagation" onmouseover="enterr('<%= product._id %>')" onmouseleave="leavee('<%= product._id %>')">
+
                 
-                  <div class="img_div">
+                  <div class="img_div"  onclick="nextPage('<%= product._id %>')">
                     
                     <img src="<%= product.images[0] %>" alt="" id="proImg"/>
-                    <button id="wishbtn"  onclick="findd()" >
+                    <button class="wishbtn"  id="<%= product._id %>" onclick="findd('<%=product._id%>','hi'); event.stopPropagation" >
                       <span class="material-icons">favorite_border</span>
                       <span class="wishname">WISHLIST</span>
                     </button>
@@ -334,6 +336,22 @@
 
           </div>
         </div>
+      </div>
+
+      <div class="paginationDiv">
+     <div class="pagination" id="totalPage"><p>Page 2 of 10</p></div>
+     <div  class="pagination">
+      <ul>
+        <li><a href="" class="priv" >< Previous</a></li>
+        <li><a href="" class="pageNo active" >1</a></li>
+        <li><a href="" class="pageNo" onclick="page(2)">2</a></li>
+        <li><a href="" class="pageNo" onclick="page(3)">3</a></li>
+        <li><a href="" class="pageNo" onclick="page(4)">4</a></li>
+        <li><a href="" class="pageNo" onclick="page(5)">5</a></li>
+        <li><a href="" class="pageNo" onclick="page(6)">6</a></li>
+        <li><a href="" class="next" onclick="page(2)">Next ></a></li>
+      </ul>
+     </div>
       </div>
       <!-- <footer id="footer"></footer> -->
         <!------- Navbar Starts Here ----->

@@ -21,7 +21,7 @@
     <title>Wishlist</title>
 
     <link rel="stylesheet" href="/css/myntra.css" />
-    <link rel="stylesheet" href="/javascrippt/wishlistcript.js" />
+    <link rel="stylesheet" href="/css/wshlist.css" />
   </head>
   <body>
     <!-- <div id="navbar"></div> -->
@@ -33,31 +33,38 @@
     <div id="title">
       <span>
         <b>My Wishlist</b>
-        <span id="quantity">0</span>
+        <span id="quantity"><%=wishlists.length%></span>
         items
       </span>
     </div>
     <div id="wishItems">
+      <% wishlists.map((item) => { %> <% let id = item._id %>
       <div class="eachI">
         <div class="imgd">
-          <div class="closeI"><span class="material-icons"> close </span></div>
-          <img
-            src="https://assets.myntassets.com/f_webp,w_200,c_limit,fl_progressive,dpr_2.0/assets/images/14334768/2021/6/15/acc52432-c491-4b74-94b2-8e3722f9a9c21623736049296JeansLevisMenTrousersLevisMenTrousersLevisMenTrousersLevisMe2.jpg"
-            alt=""
-          />
+          <div class="closeI">
+            <span
+              class="material-icons"
+              onclick="removeItem('<%= item._id %>')"
+            >
+              close
+            </span>
+          </div>
+          <img src="<%=item.images[0] %>" alt" ="" />
         </div>
         <div class="desd">
-          <p>abcddee</p>
+          <p><%=item.title %></p>
           <p>
-            <span class="price">resadf</span>
-            <span class="pstrike">rtefa</span>
-            <span class="off">ftr</span>
+            <span class="price"><b><%= 'Rs.' + item.price + ' ' %></b></span>
+            <span class="pstrike"><%= 'Rs.' + item.off_price + ' ' %></span>
+            <span class="off"><%= '(' + item.discount + '%OFF)' %></span>
           </p>
         </div>
         <div class="bagd">
-          <a>MOVE TO BAG</a>
+          <a onclick="moveToBag('<%= item._id %>')">MOVE TO BAG</a>
         </div>
       </div>
+
+      <%})%>
     </div>
     <!-- <footer id="footer"></footer> -->
     <!------- Navbar Starts Here ----->

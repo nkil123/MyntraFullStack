@@ -630,11 +630,11 @@
         </ul>
       </div>
     </div>
-    <div class="talign" id="wishlistI">
+    <div class="talign" id="wishlistI" onclick="wishPage()">
       <span class="material-icons">favorite_border</span><br />
       <span class="rname">Wishlist</span>
     </div>
-    <div class="talign" id="bagI">
+    <div class="talign" id="bagI" onclick="bagPage()">
       <span class="material-icons">shopping_bag</span><br />
       <span class="rname">Bag</span>
     </div>
@@ -646,6 +646,9 @@
   function nextPage(parameter) {
     let query = "ageGroup";
     window.location.href = `/products/category/${query}/${parameter}`;
+  }
+  function wishPage() {
+    window.location.href = "/signup-login";
   }
 </script>
 <!-- 
