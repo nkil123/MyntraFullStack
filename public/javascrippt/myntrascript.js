@@ -94,9 +94,9 @@ opt5.onmouseleave = function () {
 let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
-// opt6.onclick = () => {
-//   window.location.href = '/loginsignup/login/login.html';
-// };
+opt6.onclick = () => {
+  window.location.href = '/loginsignup/login/login.html';
+};
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
   window.location.href = '/mainProducts';
@@ -112,21 +112,20 @@ logo.onclick = function () {
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  window.location.href = '/signup-login';
+  window.location.href = '/wishlists';
 };
 
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bags';
+  window.location.href = '/bag/bag.html';
 };
 
-var take = document.getElementById ('take');
-// console.log (take);
-take.addEventListener ('click', '/mainProducts/products');
-// take.onclick = function () {
-//   window.location.href = '';
-// };
+let take = document.getElementById ('take');
+
+take.onclick = function () {
+  window.location.href = '/mainProducts/products';
+};
 let take2 = document.getElementById ('take2');
 
 take2.onclick = function () {
@@ -148,24 +147,25 @@ take5.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
 
-let slideIndex = 0;
+var slideIndex = 0;
+showSlides ();
 
 function showSlides () {
-  let slides = document.getElementsByClassName ('mySlides');
-  console.log (slides);
-  let dots = document.getElementsByClassName ('dot');
-  for (let i = 0; i < slides.length; i++) {
+  var i;
+  var slides = document.getElementsByClassName ('mySlides');
+  var dots = document.getElementsByClassName ('dot');
+  for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
   slideIndex++;
   if (slideIndex > slides.length) {
     slideIndex = 1;
   }
-  for (let i = 0; i < dots.length; i++) {
+  for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace (' active', '');
   }
   slides[slideIndex - 1].style.display = 'block';
   dots[slideIndex - 1].className += ' active';
-  setTimeout (showSlides, 3000); // Change image every 2 seconds
+  setTimeout (showSlides, 2000); // Change image every 2 seconds
 }
 showSlides ();
