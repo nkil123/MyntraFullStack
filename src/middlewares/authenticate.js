@@ -13,7 +13,7 @@ const verifyToken = token => {
 module.exports = async (req, res, next) => {
   // if we received the bearer token in the header
   // console.log (req);
-  console.log ('inside auth');
+  // console.log ('inside auth');
   const bearerToken = req.headers.authorization;
   // console.log ('bearerToken:', bearerToken);
 
@@ -43,7 +43,7 @@ module.exports = async (req, res, next) => {
       status: 'failed',
       message: ' Please provide a valid token',
     });
-  console.log (user);
+  // console.log (user);
   // else we will attach the user to the req
   req.user = user;
 

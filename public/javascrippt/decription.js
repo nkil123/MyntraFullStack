@@ -428,10 +428,8 @@ async function addtoWishlist (id) {
   let user = await findId ();
   let nuser = await user.json ();
   console.log ('user', nuser);
-  // let wishlistArray = nuser.wishItems;
-  // console.log ('wishlistArray:', wishlistArray);
+  let wishlistArray = nuser.wishItems;
 
-  // wishlistArray.push (id);
   let dts = {
     wishItems: [id],
   };

@@ -28,6 +28,7 @@ async function giveuser (id) {
   return b;
 }
 
+//--fetching data from user---//
 async function addtoBag () {
   //user comes here from token
 
@@ -39,6 +40,7 @@ async function addtoBag () {
 
   let data = userData.bagItems;
   console.log ('data', data, data.length);
+
   let newarr = [];
   //here map,forEach dont work ???
   for (let i = 0; i < data.length; i++) {
@@ -227,8 +229,7 @@ function display (datas) {
     items.append (product);
   });
 }
-
-// display (data);
+console.log (totalPrice);
 total_amount = totalPrice - totalDiscount;
 let total_price = document.getElementById ('total-price');
 let discount_price = document.getElementById ('discount-price');
@@ -244,21 +245,6 @@ if (data.length > 0) {
 }
 
 function gotoaddress () {
-  if (localStorage.getItem ('price-data') === null) {
-    localStorage.setItem ('price-data', JSON.stringify ([]));
-  }
-
-  let price_data = JSON.parse (localStorage.getItem ('price-data'));
-  let all_price_data = {
-    Mrp: totalPrice,
-    Discount: totalDiscount,
-    Coupon: coupon_discount,
-    Amount: total_amount,
-  };
-
-  price_data.push (all_price_data);
-
-  localStorage.setItem ('price-data', JSON.stringify (price_data));
   location.href = '/address/address.html';
 }
 let close_div = document.getElementById ('coppon-change');

@@ -19,61 +19,23 @@
       rel="stylesheet"
     />
     <title>Wishlist</title>
-
     <link rel="stylesheet" href="/css/myntra.css" />
     <link rel="stylesheet" href="/css/wshlist.css" />
   </head>
   <body>
-    <!-- <div id="navbar"></div> -->
-    <!------- Navbar Starts Here ----->
-
     <%- include ("partials/navbar.partials.ejs") %>
 
-    <!------- Navbar Ends Here ------->
     <div id="title">
       <span>
         <b>My Wishlist</b>
-        <span id="quantity"><%=wishlists.length%></span>
+        <span id="quantity">0</span>
         items
       </span>
     </div>
-    <div id="wishItems">
-      <% wishlists.map((item) => { %> <% %>
-      <div class="eachI">
-        <div class="imgd">
-          <div class="closeI">
-            <span
-              class="material-icons"
-              onclick="removeItem('<%= item._id %>')"
-            >
-              close
-            </span>
-          </div>
-          <img src="<%=item.images[0] %>" alt" ="" />
-        </div>
-        <div class="desd">
-          <p><%=item.title %></p>
-          <p>
-            <span class="price"><b><%= 'Rs.' + item.price + ' ' %></b></span>
-            <span class="pstrike"><%= 'Rs.' + item.off_price + ' ' %></span>
-            <span class="off"><%= '(' + item.discount + '%OFF)' %></span>
-          </p>
-        </div>
-        <div class="bagd">
-          <a onclick="moveToBag('<%= item._id %>')">MOVE TO BAG</a>
-        </div>
-      </div>
-
-      <%})%>
-    </div>
-    <!-- <footer id="footer"></footer> -->
-    <!------- Navbar Starts Here ----->
+    <div id="wishItems"></div>
 
     <%- include ("partials/footer.partials.ejs") %>
-
-    <!------- Navbar Ends Here ------->
   </body>
 </html>
-
 <script src="/javascrippt/wishlistcript.js"></script>
 <script src="/javascrippt/myntrascript.js"></script>

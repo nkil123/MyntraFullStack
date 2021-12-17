@@ -112,13 +112,21 @@ logo.onclick = function () {
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  window.location.href = '/wishlists';
+  if (localStorage.getItem ('token') === null) {
+    window.location.href = '/signup-login';
+  } else {
+    window.location.href = '/wishlists';
+  }
 };
 
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bags';
+  if (localStorage.getItem ('token') === null) {
+    window.location.href = '/signup-login';
+  } else {
+    window.location.href = '/bags';
+  }
 };
 
 let take = document.getElementById ('take');
