@@ -118,7 +118,7 @@ wishlist.onclick = function () {
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
 bag.onclick = function () {
-  window.location.href = '/bag/bag.html';
+  window.location.href = '/bags';
 };
 
 let take = document.getElementById ('take');
