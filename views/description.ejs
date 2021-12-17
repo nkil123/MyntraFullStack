@@ -32,21 +32,15 @@
     <div id="Myn_pro"></div>
     <!-- <footer id="footer"></footer> -->
 
-
-
-
-
-   
-
-
     <%- include ("partials/footer.partials.ejs") %>
 
-    <!-- <h2 style="color:red"><%=product.title%></h2> -->
+    <!-- <h2 style="color:red"><product.title%></h2> -->
+    <script>
+      let data = JSON.parse(`<%- product%>`);
 
+      console.log(data);
+    </script>
     <!------- footer Ends Here ------->
-   
-
-   
   </body>
 </html>
 <script src="/javascrippt/myntrascript.js"></script>
