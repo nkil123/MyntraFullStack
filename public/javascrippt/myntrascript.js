@@ -121,11 +121,12 @@ bag.onclick = function () {
   window.location.href = '/bags';
 };
 
-let take = document.getElementById ('take');
-console.log(take);
-take.onclick = function () {
-  window.location.href = '/mainProducts/products';
-};
+var take = document.getElementById ('take');
+// console.log (take);
+take.addEventListener ('click', '/mainProducts/products');
+// take.onclick = function () {
+//   window.location.href = '';
+// };
 let take2 = document.getElementById ('take2');
 
 take2.onclick = function () {

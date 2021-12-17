@@ -18,26 +18,54 @@ function showFunction () {
     moreText.style.display = 'inline';
   }
 }
+let token = JSON.parse (localStorage.getItem ('token'));
+async function giveuser (id) {
+  console.log (id);
+  let a = await fetch (`http://localhost:2233/userData/${id}`);
 
+  let b = await a.json ();
+  console.log (b);
+  return b;
+}
+
+async function addtoBag () {
+  //user comes here from token
+
+  let temp = await findId ();
+  let user = await temp.json ();
+
+  let id = user._id;
+  let userData = giveuser (id);
+  let data = userData.bagItems;
+  console.log (data);
+  // let newarr = [];
+  // data.forEach (async e => {
+  //   let ff = await fetch (`http://localhost:2233/products/bags/${e.productId}`);
+  //   let nn = await ff.json ();
+
+  //   newarr.push (nn);
+  // });
+}
+
+async function findId () {
+  console.log ('hi');
+  let user = await fetch (`http://localhost:2233/*/user`, {
+    headers: {
+      'Content-Type': 'application/json',
+
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return user;
+}
+addtoBag ();
+console.log ('data');
 let items = document.getElementById ('items');
 //
 
-await function datas(){
-  
-}
-
-
-
-
-
-
-
-
-let data=JSON.parse(localStorage.getItem("cart"));
-
-
-let totalPrice=0;
-let totalDiscount=0;
+let totalPrice = 0;
+let totalDiscount = 0;
 let total_amount;
 
 function display (datas) {
@@ -118,51 +146,39 @@ function display (datas) {
     let spanm = document.createElement ('span');
 
     let span4 = document.createElement ('span');
-    let p_price=element.price;
-    let mrp=element.off_price;
-      
-    totalPrice=totalPrice+mrp;
-    totalDiscount+=(mrp-p_price);
-      
-    select2.onchange=()=>{
-        totalPrice=totalPrice-mrp;
-        totalDiscount=totalDiscount-(mrp-p_price);
-        p_price=element.price*select2.value;
-        mrp=element.off_price*select2.value;
-        
-        
-        totalPrice=totalPrice+mrp;
-        totalDiscount+=(mrp-p_price);
-        total_amount=totalPrice-totalDiscount;
-        console.log(totalPrice);
-        if(data.length>0){
-          total_price.innerHTML="";
-          discount_price.innerHTML="";
-          total_amount.innerHTML="";
-          total_price.innerHTML=totalPrice;
-          discount_price.innerHTML="-"+totalDiscount;
-          totalAamount.innerHTML=total_amount;
-          
-        }
-        span4.innerHTML = `${'Rs.' + p_price + '   '}`;
-        strike.innerHTML = `${'Rs.' + mrp+ '  '}`;
-        
-        
-        
-         
-         
-        
+    let p_price = element.price;
+    let mrp = element.off_price;
+
+    totalPrice = totalPrice + mrp;
+    totalDiscount += mrp - p_price;
+
+    select2.onchange = () => {
+      totalPrice = totalPrice - mrp;
+      totalDiscount = totalDiscount - (mrp - p_price);
+      p_price = element.price * select2.value;
+      mrp = element.off_price * select2.value;
+
+      totalPrice = totalPrice + mrp;
+      totalDiscount += mrp - p_price;
+      total_amount = totalPrice - totalDiscount;
+      console.log (totalPrice);
+      if (data.length > 0) {
+        total_price.innerHTML = '';
+        discount_price.innerHTML = '';
+        total_amount.innerHTML = '';
+        total_price.innerHTML = totalPrice;
+        discount_price.innerHTML = '-' + totalDiscount;
+        totalAamount.innerHTML = total_amount;
       }
-      
-      
-  
-      
-  
       span4.innerHTML = `${'Rs.' + p_price + '   '}`;
-  
-      let strike = document.createElement ('strike');
-  
-      strike.innerHTML = `${'Rs.' + mrp+ '  '}`;
+      strike.innerHTML = `${'Rs.' + mrp + '  '}`;
+    };
+
+    span4.innerHTML = `${'Rs.' + p_price + '   '}`;
+
+    let strike = document.createElement ('strike');
+
+    strike.innerHTML = `${'Rs.' + mrp + '  '}`;
 
     /*span4.innerHTML = `${'Rs.' + element.price + '   '}`;
 
@@ -171,9 +187,9 @@ function display (datas) {
     strike.innerHTML = `${'Rs.' + element.price + '  '}`;*/
 
     let span5 = document.createElement ('span');
-    let off=element.discount;
+    let off = element.discount;
 
-    span5.innerHTML = `${off+' % OFF'}`;
+    span5.innerHTML = `${off + ' % OFF'}`;
     span5.style.color = 'red';
 
     spanm.append (span4, strike, span5);
@@ -196,97 +212,80 @@ function display (datas) {
 }
 
 display (data);
-total_amount=totalPrice-totalDiscount;
-  let total_price=document.getElementById("total-price");
-  let discount_price=document.getElementById("discount-price");
-  let totalAamount=document.getElementById("total-amount");
-  console.log(totalPrice);
-  if(data.length>0){
-    total_price.innerHTML="";
-    discount_price.innerHTML="";
-    total_amount.innerHTML="";
-    total_price.innerHTML=totalPrice;
-    discount_price.innerHTML="-"+totalDiscount;
-    totalAamount.innerHTML=total_amount;
+total_amount = totalPrice - totalDiscount;
+let total_price = document.getElementById ('total-price');
+let discount_price = document.getElementById ('discount-price');
+let totalAamount = document.getElementById ('total-amount');
+console.log (totalPrice);
+if (data.length > 0) {
+  total_price.innerHTML = '';
+  discount_price.innerHTML = '';
+  total_amount.innerHTML = '';
+  total_price.innerHTML = totalPrice;
+  discount_price.innerHTML = '-' + totalDiscount;
+  totalAamount.innerHTML = total_amount;
+}
+
+function gotoaddress () {
+  if (localStorage.getItem ('price-data') === null) {
+    localStorage.setItem ('price-data', JSON.stringify ([]));
   }
 
+  let price_data = JSON.parse (localStorage.getItem ('price-data'));
+  let all_price_data = {
+    Mrp: totalPrice,
+    Discount: totalDiscount,
+    Coupon: coupon_discount,
+    Amount: total_amount,
+  };
 
-  function gotoaddress(){
-    if(localStorage.getItem("price-data")===null){
-      localStorage.setItem("price-data",JSON.stringify([]));
-    }
-  
-    let price_data=JSON.parse(localStorage.getItem("price-data"));
-    let all_price_data={
-      Mrp:totalPrice,
-      Discount:totalDiscount,
-      Coupon:coupon_discount,
-      Amount:total_amount,
-  
-    }
-  
-    price_data.push(all_price_data);
-    
-    localStorage.setItem("price-data",JSON.stringify(price_data));
-    location.href="/address/address.html"
+  price_data.push (all_price_data);
 
+  localStorage.setItem ('price-data', JSON.stringify (price_data));
+  location.href = '/address/address.html';
+}
+let close_div = document.getElementById ('coppon-change');
+function closeWindow () {
+  close_div.style.display = 'none';
+}
+
+let coupon_discount = 0;
+
+function couponApply () {
+  close_div.style.display = 'block';
+}
+function getcouponDiscount () {
+  let myntra10 = document.getElementById ('myntra10');
+  let myntra20 = document.getElementById ('myntra20');
+  let myntra30 = document.getElementById ('myntra30');
+
+  if (myntra10.checked) {
+    coupon_discount = Math.floor (total_amount * 10 / 100);
+    console.log (coupon_discount);
   }
-  let close_div=document.getElementById("coppon-change");
-  function closeWindow(){
-    
-     close_div.style.display="none";
+  if (myntra20.checked) {
+    coupon_discount = Math.floor (total_amount * 20 / 100);
+    console.log (coupon_discount);
   }
-
-  let coupon_discount=0;
-
-  function couponApply(){
-    close_div.style.display="block";
-    
+  if (myntra30.checked) {
+    coupon_discount = Math.floor (total_amount * 30 / 100);
+    console.log (coupon_discount);
   }
-  function getcouponDiscount(){
-    let myntra10=document.getElementById("myntra10");
-    let myntra20=document.getElementById("myntra20");
-    let myntra30=document.getElementById("myntra30");
+  total_amount = total_amount - coupon_discount;
+  console.log (total_amount);
+  totalAamount.innerHTML = total_amount;
+  close_div.style.display = 'none';
+  let show_discount = document.getElementById ('show-discount');
+  show_discount.innerHTML = '';
+  show_discount.innerHTML = '-' + coupon_discount;
+}
 
-    if(myntra10.checked){
-      coupon_discount=Math.floor(total_amount*10/100);
-      console.log(coupon_discount);
-
-    }
-    if(myntra20.checked){
-      coupon_discount=Math.floor(total_amount*20/100);
-      console.log(coupon_discount);
-
-    }
-     if(myntra30.checked){
-      coupon_discount=Math.floor(total_amount*30/100);
-      console.log(coupon_discount);
-
-    }
-    total_amount=total_amount-coupon_discount;
-    console.log(total_amount);
-    totalAamount.innerHTML=total_amount;
-    close_div.style.display="none";
-    let show_discount=document.getElementById("show-discount");
-    show_discount.innerHTML="";
-    show_discount.innerHTML="-"+coupon_discount;
-  }
-
-
-  function clearData(){
-    console.log("aaa");
-    data=[];
-    display(data);
-     /*let ndata=[];
+function clearData () {
+  console.log ('aaa');
+  data = [];
+  display (data);
+  /*let ndata=[];
      display(ndata);
     localStorage.setItem("cart",JSON.stringify([]));
     //let newd= JSON.parse(localStorage.getItem("cart"))*/
-    
-    
-  }
-
-  
-
- 
-
-  
+}

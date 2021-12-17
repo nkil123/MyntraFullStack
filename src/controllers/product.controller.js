@@ -1,4 +1,5 @@
 const express = require ('express');
+const authenticate = require ('../middlewares/authenticate');
 const Product = require ('../models/product.model');
 const router = express.Router ();
 
@@ -22,12 +23,12 @@ router.get ('', async (req, res) => {
 });
 router.get ('/:id', async (req, res) => {
   try {
-    console.log ('id find');
+    // console.log ('id find');
     const product = await Product.findById (req.params.id).lean ().exec ();
-    console.log(product);
+    // console.log (product);
 
     // return res.json (product);
-    return res.render ('description', { product: JSON.stringify(product)});
+    return res.render ('description', {product: JSON.stringify (product)});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
@@ -49,6 +50,19 @@ router.get ('/category/:p1/:p2', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+router.get ('/bags/:id', authenticate, async (req, res) => {
+  try {
+    // console.log ('id find');
+    const product = await Product.findById (req.params.id).lean ().exec ();
+    // console.log (product);
+
+    return res.send (product);
+    // return res.render ('description', {product: JSON.stringify (product)});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
 router.get ('/price/:p1/:p2', async (req, res) => {
   try {
     // console.log (cat, req.query.parameter);

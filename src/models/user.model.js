@@ -12,11 +12,20 @@ const userSchema = new Schema (
     description: {type: String, required: true},
     bagItems: [
       {
-        productId: {type: String, required: false},
-        count: {type: Number, required: true},
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: 'product',
+          required: false,
+        },
+        count: {type: Number, required: false},
       },
     ],
-    wishItems: [{productId: {type: String, required: false}}],
+    wishItems: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'product',
+      },
+    ],
   },
   {
     versionKey: false,
