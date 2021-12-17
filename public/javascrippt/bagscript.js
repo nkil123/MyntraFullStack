@@ -35,20 +35,36 @@ async function addtoBag () {
   let user = await temp.json ();
 
   let id = user._id;
-  let userData = giveuser (id);
-  let data = userData.bagItems;
-  console.log (data);
-  // let newarr = [];
-  // data.forEach (async e => {
-  //   let ff = await fetch (`http://localhost:2233/products/bags/${e.productId}`);
-  //   let nn = await ff.json ();
+  let userData = await giveuser (id);
 
-  //   newarr.push (nn);
-  // });
+  let data = userData.bagItems;
+  console.log ('data', data, data.length);
+  let newarr = [];
+  //here map,forEach dont work ???
+  for (let i = 0; i < data.length; i++) {
+    let ff = await fetch (
+      `http://localhost:2233/products/bags/${data[i].productId}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    let nn = await ff.json ();
+    //do something
+    p (nn);
+  }
+  function p (val) {
+    newarr.push (val);
+  }
+  console.log (newarr);
+  display (newarr);
 }
 
 async function findId () {
-  console.log ('hi');
+  // console.log ('hi');
   let user = await fetch (`http://localhost:2233/*/user`, {
     headers: {
       'Content-Type': 'application/json',
@@ -60,6 +76,7 @@ async function findId () {
   return user;
 }
 addtoBag ();
+
 console.log ('data');
 let items = document.getElementById ('items');
 //
@@ -77,7 +94,7 @@ function display (datas) {
     product1.className = 'product1';
 
     let img = document.createElement ('img');
-    img.src = element.images.image1;
+    img.src = element.images[0];
 
     product1.append (img);
 
@@ -211,7 +228,7 @@ function display (datas) {
   });
 }
 
-display (data);
+// display (data);
 total_amount = totalPrice - totalDiscount;
 let total_price = document.getElementById ('total-price');
 let discount_price = document.getElementById ('discount-price');

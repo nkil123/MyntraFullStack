@@ -113,9 +113,8 @@ span {
   align-items: center;
   margin-right: 0%;
   height: 55px;
-
 }
-::placeholder{
+::placeholder {
   font-size: 18px;
 }
 
@@ -237,7 +236,7 @@ footer .info .keepInTouch a {
   left: 160px;
   display: flex;
   /* transition: cubic-bezier(0.455, 0.03, 0.515, 0.955); */
-} 
+}
 .ddown li {
   list-style: none;
   padding: 1.5px;

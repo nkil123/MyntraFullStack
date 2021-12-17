@@ -427,13 +427,13 @@ async function addtoWishlist (id) {
   let token = JSON.parse (localStorage.getItem ('token'));
   let user = await findId ();
   let nuser = await user.json ();
-  console.log (nuser);
-  let wishlistArray = nuser.wishItems;
-  console.log ('wishlistArray:', wishlistArray);
+  console.log ('user', nuser);
+  // let wishlistArray = nuser.wishItems;
+  // console.log ('wishlistArray:', wishlistArray);
 
-  wishlistArray.push (id);
+  // wishlistArray.push (id);
   let dts = {
-    wishItems: wishlistArray,
+    wishItems: [id],
   };
   let data_to_send = JSON.stringify (dts);
 
@@ -470,6 +470,7 @@ async function findId () {
 }
 
 async function addtoBag (data) {
+  let token = JSON.parse (localStorage.getItem ('token'));
   let userId = await findId ();
   let newd = await userId.json ();
 
