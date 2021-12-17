@@ -308,9 +308,10 @@ footer .info .keepInTouch a {
 #dprofile {
   visibility: hidden;
   position: absolute;
-  top: 79px;
+  z-index: 200;
+  top: 76px;
   width: 300px;
-  height: 500px;
+  height: 700px;
   right: 150px;
   background-color: white;
   color: black;
