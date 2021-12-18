@@ -135,7 +135,7 @@ opt6.onmouseleave = function () {
 
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
-  window.location.href = '/mainProducts';
+  window.location.href = '/';
 };
 
 async function findId () {
