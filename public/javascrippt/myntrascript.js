@@ -5,10 +5,10 @@ let flag = false;
 
 hamburger.onclick = function () {
   if (flag) {
-    navigation.style.visibility = 'visible';
+    navigation.style.visibility = 'hidden';
     flag = false;
   } else {
-    navigation.style.visibility = 'hidden';
+    navigation.style.visibility = 'visible';
     flag = true;
   }
 };
