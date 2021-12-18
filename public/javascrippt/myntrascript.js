@@ -5,10 +5,10 @@ let flag = false;
 
 hamburger.onclick = function () {
   if (flag) {
-    navigation.style.visibility = 'visible';
+    navigation.style.visibility = 'hidden';
     flag = false;
   } else {
-    navigation.style.visibility = 'hidden';
+    navigation.style.visibility = 'visible';
     flag = true;
   }
 };
@@ -94,25 +94,69 @@ opt5.onmouseleave = function () {
 let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
-opt6.onclick = () => {
-  window.location.href = '/signup-login';
+opt6.onmouseover = async function () {
+  // console.log(toshow4);
+  let username = document.getElementById ('userName');
+  let mobile = document.getElementById ('mobileNo');
+  let logout = document.getElementById ('logOut');
+  console.log (username, mobile, logout);
+
+  if (
+    localStorage.getItem ('token') === null ||
+    localStorage.getItem ('token') === JSON.stringify ([])
+  ) {
+    username.innerHTML = 'Username';
+    mobile.innerHTML = 'Mobile';
+    logout.innerHTML = 'Sign-In/Sign-Up';
+    logout.style.cursor = 'pointer';
+    logout.onclick = function () {
+      window.location.href = '/signup-login';
+    };
+  } else {
+    let un = await findId ();
+    let userName = await un.json ();
+    username.innerHTML = userName.username;
+
+    mobile.innerHTML = userName.mobile;
+
+    logout.onclick = function () {
+      localStorage.setItem ('token', JSON.stringify ([]));
+      window.location.reload ();
+    };
+  }
+  opt6.style.borderBottom = '4px solid red';
+  toshow6.style.visibility = 'visible';
 };
+opt6.onmouseleave = function () {
+  // console.log(toshow5);
+  opt6.style.borderBottom = null;
+  toshow6.style.visibility = 'hidden';
+};
+
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
   window.location.href = '/mainProducts';
 };
-// opt6.onmouseover = function () {
-//   toshow6.style.visibility = 'visible';
-// };
-// opt6.onmouseleave = function () {
-//   opt6.style.borderBottom = null;
-//   toshow6.style.visibility = 'hidden';
-// };
 
+async function findId () {
+  let token = JSON.parse (localStorage.getItem ('token'));
+  let user = await fetch (`http://localhost:2233/*/user`, {
+    headers: {
+      'Content-Type': 'application/json',
+
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return user;
+}
 let wishlist = document.getElementById ('wishlistI');
 wishlist.style.cursor = 'pointer';
 wishlist.onclick = function () {
-  if (localStorage.getItem ('token') === null) {
+  if (
+    localStorage.getItem ('token') === null ||
+    localStorage.getItem ('token') === JSON.stringify ([])
+  ) {
     window.location.href = '/signup-login';
   } else {
     window.location.href = '/wishlists';
@@ -121,37 +165,41 @@ wishlist.onclick = function () {
 
 let bag = document.getElementById ('bagI');
 bag.style.cursor = 'pointer';
+
 bag.onclick = function () {
-  if (localStorage.getItem ('token') === null) {
+  if (
+    localStorage.getItem ('token') === null ||
+    localStorage.getItem ('token') === JSON.stringify ([])
+  ) {
     window.location.href = '/signup-login';
   } else {
     window.location.href = '/bags';
   }
 };
 
-let take = document.getElementById ('take');
+let itemA = document.getElementById ('take');
 
-take.onclick = function () {
+itemA.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let take2 = document.getElementById ('take2');
+let itemB = document.getElementById ('take2');
 
-take2.onclick = function () {
+itemB.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let take3 = document.getElementById ('take3');
+let itemC = document.getElementById ('take3');
 
-take3.onclick = function () {
+itemC.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let take4 = document.getElementById ('take4');
+let itemD = document.getElementById ('take4');
 
-take4.onclick = function () {
+itemD.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let take5 = document.getElementById ('take5');
+let itemE = document.getElementById ('take5');
 
-take5.onclick = function () {
+itemE.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
 
