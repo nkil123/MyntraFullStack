@@ -95,7 +95,7 @@ let opt6 = document.getElementById ('profileI');
 let toshow6 = document.getElementById ('dprofile');
 
 opt6.onclick = () => {
-  window.location.href = '/loginsignup/login/login.html';
+  window.location.href = '/signup-login';
 };
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
