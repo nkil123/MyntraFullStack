@@ -1,9 +1,9 @@
 const express = require ('express');
 require ('dotenv').config ();
-
+const port = process.env.PORT || 2233;
 const jwt = require ('jsonwebtoken');
 const User = require ('./models/user.model');
-const Product = require ('./models/product.model');
+
 const authenticate = require ('./middlewares/authenticate');
 const verifyToken = token => {
   return new Promise ((resolve, reject) => {
@@ -13,10 +13,6 @@ const verifyToken = token => {
       return resolve (token);
     });
   });
-};
-
-const newToken = user => {
-  return jwt.sign ({user: user}, process.env.jwt_private_key);
 };
 
 const numberVerifyController = require ('./controllers/signup-login/number-verify.controller');
