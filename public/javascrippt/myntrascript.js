@@ -5,10 +5,10 @@ let flag = false;
 
 hamburger.onclick = function () {
   if (flag) {
-    navigation.style.visibility = 'visible';
+    navigation.style.visibility = 'hidden';
     flag = false;
   } else {
-    navigation.style.visibility = 'hidden';
+    navigation.style.visibility = 'visible';
     flag = true;
   }
 };
@@ -135,7 +135,7 @@ opt6.onmouseleave = function () {
 
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
-  window.location.href = '/mainProducts';
+  window.location.href = '/';
 };
 
 async function findId () {

@@ -22,6 +22,42 @@ router.get ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+
+router.get ('/address', async (req, res) => {
+  try {
+    
+
+    
+    return res.render ('address');
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+
+router.get ('/payment', async (req, res) => {
+  try {
+    
+
+    
+    return res.render ('payment');
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/thankyou', async (req, res) => {
+  try {
+    
+
+    
+    return res.render ('thankyou');
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+
 router.get ('/:id', async (req, res) => {
   try {
     const bag = await Bag.findById (req.params.id).lean ().exec ();

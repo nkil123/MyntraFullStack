@@ -1,6 +1,6 @@
 let logo = document.getElementById ('logo');
 logo.onclick = function () {
-  window.location.href = '/myntra/myntra.html';
+  window.location.href = '/';
 };
 
 function showFunction () {
@@ -27,6 +27,13 @@ async function giveuser (id) {
   console.log (b);
   return b;
 }
+
+
+let items = document.getElementById ('items');
+let totalPrice = 0;
+let totalDiscount = 0;
+let total_amount;
+let coupon_discount = 0;
 
 //--fetching data from user---//
 async function addtoBag () {
@@ -61,31 +68,20 @@ async function addtoBag () {
   function p (val) {
     newarr.push (val);
   }
-  console.log (newarr);
+  console.log ("aaaaa",newarr);
   display (newarr);
-}
 
-async function findId () {
-  // console.log ('hi');
-  let user = await fetch (`http://localhost:2233/*/user`, {
-    headers: {
-      'Content-Type': 'application/json',
 
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  return user;
-}
-addtoBag ();
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+console.log ('aaaaaaaaaaaaa');
 
 console.log ('data');
-let items = document.getElementById ('items');
+//let items = document.getElementById ('items');
 //
 
-let totalPrice = 0;
-let totalDiscount = 0;
-let total_amount;
+// let totalPrice = 0;
+// let totalDiscount = 0;
+// let total_amount;
 
 function display (datas) {
   datas.forEach (element => {
@@ -167,6 +163,8 @@ function display (datas) {
     let span4 = document.createElement ('span');
     let p_price = element.price;
     let mrp = element.off_price;
+    console.log(p_price);
+    console.log(mrp);
 
     totalPrice = totalPrice + mrp;
     totalDiscount += mrp - p_price;
@@ -229,7 +227,7 @@ function display (datas) {
     items.append (product);
   });
 }
-console.log (totalPrice);
+console.log ("total price",totalPrice);
 total_amount = totalPrice - totalDiscount;
 let total_price = document.getElementById ('total-price');
 let discount_price = document.getElementById ('discount-price');
@@ -239,9 +237,9 @@ if (data.length > 0) {
   total_price.innerHTML = '';
   discount_price.innerHTML = '';
   total_amount.innerHTML = '';
-  total_price.innerHTML = totalPrice;
+  total_price.innerHTML = total_amount;
   discount_price.innerHTML = '-' + totalDiscount;
-  totalAamount.innerHTML = total_amount;
+  totalAamount.innerHTML = totalPrice;
 }
 
 function gotoaddress () {
@@ -252,36 +250,36 @@ function closeWindow () {
   close_div.style.display = 'none';
 }
 
-let coupon_discount = 0;
+//let coupon_discount = 0;
 
-function couponApply () {
-  close_div.style.display = 'block';
-}
-function getcouponDiscount () {
-  let myntra10 = document.getElementById ('myntra10');
-  let myntra20 = document.getElementById ('myntra20');
-  let myntra30 = document.getElementById ('myntra30');
+// function couponApply () {
+//   close_div.style.display = 'block';
+// }
+// function getcouponDiscount () {
+//   let myntra10 = document.getElementById ('myntra10');
+//   let myntra20 = document.getElementById ('myntra20');
+//   let myntra30 = document.getElementById ('myntra30');
 
-  if (myntra10.checked) {
-    coupon_discount = Math.floor (total_amount * 10 / 100);
-    console.log (coupon_discount);
-  }
-  if (myntra20.checked) {
-    coupon_discount = Math.floor (total_amount * 20 / 100);
-    console.log (coupon_discount);
-  }
-  if (myntra30.checked) {
-    coupon_discount = Math.floor (total_amount * 30 / 100);
-    console.log (coupon_discount);
-  }
-  total_amount = total_amount - coupon_discount;
-  console.log (total_amount);
-  totalAamount.innerHTML = total_amount;
-  close_div.style.display = 'none';
-  let show_discount = document.getElementById ('show-discount');
-  show_discount.innerHTML = '';
-  show_discount.innerHTML = '-' + coupon_discount;
-}
+//   if (myntra10.checked) {
+//     coupon_discount = Math.floor (total_amount * 10 / 100);
+//     console.log (coupon_discount);
+//   }
+//   if (myntra20.checked) {
+//     coupon_discount = Math.floor (total_amount * 20 / 100);
+//     console.log (coupon_discount);
+//   }
+//   if (myntra30.checked) {
+//     coupon_discount = Math.floor (total_amount * 30 / 100);
+//     console.log (coupon_discount);
+//   }
+//   total_amount = total_amount - coupon_discount;
+//   console.log (total_amount);
+//   totalAamount.innerHTML = total_amount;
+//   close_div.style.display = 'none';
+//   let show_discount = document.getElementById ('show-discount');
+//   show_discount.innerHTML = '';
+//   show_discount.innerHTML = '-' + coupon_discount;
+// }
 
 function clearData () {
   console.log ('aaa');
@@ -292,3 +290,82 @@ function clearData () {
     localStorage.setItem("cart",JSON.stringify([]));
     //let newd= JSON.parse(localStorage.getItem("cart"))*/
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+
+async function findId () {
+  // console.log ('hi');
+  let user = await fetch (`http://localhost:2233/*/user`, {
+    headers: {
+      'Content-Type': 'application/json',
+
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return user;
+}
+addtoBag ();
+
+let total_price = document.getElementById ('total-price');
+let discount_price = document.getElementById ('discount-price');
+let totalAamount = document.getElementById ('total-amount');
+
+let close_div = document.getElementById ('coppon-change');
+
+function couponApply () {
+  close_div.style.display = 'block';
+}
+
+function gotoaddress () {
+  if(localStorage.getItem("price-data")===null){
+    localStorage.setItem("price-data",JSON.stringify([]));
+  }
+  let price_data = JSON.parse(localStorage.getItem("price-data"));
+  price_data= [];
+  let data = {
+    Mrp:total_amount,
+    Discount:totalDiscount,
+    Coupon:coupon_discount,
+    Amount:totalPrice
+  }
+
+  price_data.push(data);
+
+  localStorage.setItem("price-data",JSON.stringify(price_data));
+  location.href = '/bags/address';
+}
+
+function closeWindow () {
+  close_div.style.display = 'none';
+}
+
+function getcouponDiscount () {
+  let myntra10 = document.getElementById ('myntra10');
+  let myntra20 = document.getElementById ('myntra20');
+  let myntra30 = document.getElementById ('myntra30');
+
+  if (myntra10.checked) {
+    coupon_discount = Math.floor (totalPrice * 10 / 100);
+    console.log (coupon_discount);
+  }
+  if (myntra20.checked) {
+    coupon_discount = Math.floor (totalPrice * 20 / 100);
+    console.log (coupon_discount);
+  }
+  if (myntra30.checked) {
+    coupon_discount = Math.floor (totalPrice * 30 / 100);
+    console.log (coupon_discount);
+  }
+  totalPrice = totalPrice - coupon_discount;
+  console.log (totalPrice);
+  totalAamount.innerHTML = totalPrice;
+  close_div.style.display = 'none';
+  let show_discount = document.getElementById ('show-discount');
+  show_discount.innerHTML = '';
+  show_discount.innerHTML = '-' + coupon_discount;
+}
+
+
