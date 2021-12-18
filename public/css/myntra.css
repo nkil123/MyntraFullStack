@@ -113,25 +113,29 @@ span {
   height: 55px;
 }
 ::placeholder {
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #f5f5f6;
 }
 
 #header .search input {
   /* display: flex; */
   height: 55px;
   width: 100%;
-  color: #f5f5f6;
+  color: black;
   background-color: #f5f5f6;
   padding: 8px 10px 10px 10px;
   border: 0;
+  
 }
 
 #header .search a {
   background-color: #f5f5f6;
+  font-size: 12px;
   width: 40px;
   height: 55px;
   align-items: center;
-  padding: 8px 10px 5px 10px;
+  padding: 18px 10px 5px 10px;
   justify-content: center;
   text-decoration: none;
   color: rgb(128, 125, 125);
@@ -270,7 +274,8 @@ footer .info .keepInTouch a {
 }
 
 .cimages {
-  position: relative;
+  position : relative;
+ 
   width: 100%;
   text-align: center;
   margin-top: 50px;
