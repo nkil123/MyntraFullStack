@@ -15,7 +15,7 @@ hamburger.onclick = function () {
 let opt1 = document.getElementById ('opt1');
 let toshow = document.getElementById ('MEN');
 let ddown = document.getElementsByClassName ('ddown');
-let name = document.getElementById ('name');
+let namee = document.getElementById ('name');
 opt1.onmouseover = function () {
   // console.log(toshow);
   opt1.style.borderBottom = '4px solid red';
@@ -177,39 +177,39 @@ bag.onclick = function () {
   }
 };
 
-let itemA = document.getElementById ('take');
+var itemA = document.getElementById ('take');
 
 itemA.onclick = function () {
+  console.log ('hI');
   window.location.href = '/mainProducts/products';
 };
-let itemB = document.getElementById ('take2');
+var itemB = document.getElementById ('take2');
 
 itemB.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let itemC = document.getElementById ('take3');
+var itemC = document.getElementById ('take3');
 
 itemC.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let itemD = document.getElementById ('take4');
+var itemD = document.getElementById ('take4');
 
 itemD.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
-let itemE = document.getElementById ('take5');
+var itemE = document.getElementById ('take5');
 
 itemE.onclick = function () {
   window.location.href = '/mainProducts/products';
 };
 
-var slideIndex = 0;
-showSlides ();
+let slideIndex = 0;
 
 function showSlides () {
-  var i;
-  var slides = document.getElementsByClassName ('mySlides');
-  var dots = document.getElementsByClassName ('dot');
+  let i;
+  let slides = document.getElementsByClassName ('mySlides');
+  let dots = document.getElementsByClassName ('dot');
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
@@ -218,12 +218,11 @@ function showSlides () {
     slideIndex = 1;
   }
   for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace (' active', '');
+    dots[i].className = dots[i].className.replace ('active', '');
   }
   slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
+  dots[slideIndex - 1].className += 'active';
   setTimeout (showSlides, 2000); // Change image every 2 seconds
 }
+
 showSlides ();
-
-
