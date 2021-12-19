@@ -1,7 +1,7 @@
 const express = require ('express');
 const MainProduct = require ('../models/mainProduct.model');
 const router = express.Router ();
-
+const port = process.env.PORT || 2233;
 router.post ('', async (req, res) => {
   try {
     const mainProduct = await MainProduct.create (req.body);
