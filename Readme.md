@@ -65,6 +65,8 @@ The second way consists of cloning the repository into your system & running the
   <li>Applying various discounts and adjusting the cart value accordingly</li>
   <li>User-friendly checkout process</li>
   <li>A convenient Payments page & thus successfully placing the order</li>
+  <li> ----- </li>
+  <li> ----- </li>
 </ul>
 
 ## Team Members :-
