@@ -5,7 +5,8 @@ Myntra is a major Indian e-commerce comopany headquartered in Bangalore. The com
 ## Project Overview :-
 
 This is a complete full-stack project of developing clone of this e-commerce website Myntra.com <br>
-We've added all the fuctionalities of the website in our project for a lifelike user experience. Users can browse the products, filter them according to their needs, add them to the cart, check out of the cart and make payments at the end. This replication of whole user experince makes it difficult to differentiate between the original website and our clone version of it. <br>
+This being a backend-focused project, we've not used HTML for creating any markups. Instead every single page in this project is created using a javascript template engine - EJS. EJS enables you to generate full-blown HTML pages with stunning frontend with dynamic data & it can share templated pieces with other web pages.
+Here, we've added all the fuctionalities of the website in our project for a lifelike user experience. Users can browse the products, filter them according to their needs, add them to the cart, check out of the cart and make payments at the end. This replication of whole user experince makes it difficult to differentiate between the original website and our clone version of it. <br>
 
 ## Getting Started :-
 
