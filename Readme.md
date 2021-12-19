@@ -17,8 +17,8 @@ The second way consists of cloning the repository into your system & running the
   <li>Clone the given repository into your local system.</li>
   <li>Open that repository in your preferred IDE</li>
   <li>Import all the required npm modules by running "npm install" command in the current repository</li>
-  <li> ------------ </li>
-  <li> ------------ </li>
+  <li>Run "npm run server" command in this repository in your code editor.</li>
+  <li>Navigate to "http://localhost:2233/" in your preferred browser.</li>
 </ul>
 
 ## Tech-stack Used :-
