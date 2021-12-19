@@ -140,13 +140,16 @@ logo.onclick = function () {
 
 async function findId () {
   let token = JSON.parse (localStorage.getItem ('token'));
-  let user = await fetch (`http://localhost:2233/*/user`, {
-    headers: {
-      'Content-Type': 'application/json',
+  let user = await fetch (
+    `https://mysterious-depths-64439.herokuapp.com/*/user`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
 
-      Authorization: `Bearer ${token}`,
-    },
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   return user;
 }

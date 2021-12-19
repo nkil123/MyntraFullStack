@@ -191,9 +191,7 @@ function MyntraDecricption () {
   let pin_pro_2 = document.createElement ('div');
   let pin_pro_3 = document.createElement ('div');
   pin_pro_1.innerHTML =
-    '<ion-icon name="train-outline"></ion-icon>' +
-    ' ' +
-    'Get it by Mon,Dec 27';
+    '<ion-icon name="train-outline"></ion-icon>' + ' ' + 'Get it by Mon,Dec 27';
   pin_pro_2.innerHTML =
     '<ion-icon name="cash-outline"></ion-icon>' +
     ' ' +
@@ -435,7 +433,7 @@ async function addtoWishlist (id) {
   };
   let data_to_send = JSON.stringify (dts);
 
-  fetch (`http://localhost:2233/*/user/add`, {
+  fetch (`https://mysterious-depths-64439.herokuapp.com/*/user/add`, {
     method: 'PATCH',
     body: data_to_send,
     headers: {
@@ -456,13 +454,16 @@ async function addtoWishlist (id) {
 
 async function findId () {
   let token = JSON.parse (localStorage.getItem ('token'));
-  let user = await fetch (`http://localhost:2233/*/user`, {
-    headers: {
-      'Content-Type': 'application/json',
+  let user = await fetch (
+    `https://mysterious-depths-64439.herokuapp.com/*/user`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
 
-      Authorization: `Bearer ${token}`,
-    },
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   return user;
 }
@@ -477,7 +478,7 @@ async function addtoBag (data) {
   };
   let data_to_send = JSON.stringify (newData);
   console.log ('data_to_send:', data_to_send);
-  fetch (`http://localhost:2233/*/user/add`, {
+  fetch (`https://mysterious-depths-64439.herokuapp.com/*/user/add`, {
     method: 'PATCH',
     body: data_to_send,
     headers: {

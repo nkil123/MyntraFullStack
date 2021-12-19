@@ -1,7 +1,9 @@
 let token = JSON.parse (localStorage.getItem ('token'));
 async function giveuser (id) {
   console.log (id);
-  let a = await fetch (`http://localhost:2233/userData/${id}`);
+  let a = await fetch (
+    `https://mysterious-depths-64439.herokuapp.com/userData/${id}`
+  );
 
   let b = await a.json ();
   console.log (b);
@@ -22,13 +24,16 @@ async function addtoBag () {
   let newarr = [];
   //here map,forEach dont work ???
   for (let i = 0; i < data.length; i++) {
-    let ff = await fetch (`http://localhost:2233/products/bags/${data[i]}`, {
-      headers: {
-        'Content-Type': 'application/json',
+    let ff = await fetch (
+      `https://mysterious-depths-64439.herokuapp.com/products/bags/${data[i]}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
 
-        Authorization: `Bearer ${token}`,
-      },
-    });
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     let nn = await ff.json ();
     //do something
@@ -43,13 +48,16 @@ async function addtoBag () {
 
 async function findId () {
   // console.log ('hi');
-  let user = await fetch (`http://localhost:2233/*/user`, {
-    headers: {
-      'Content-Type': 'application/json',
+  let user = await fetch (
+    `https://mysterious-depths-64439.herokuapp.com/*/user`,
+    {
+      headers: {
+        'Content-Type': 'application/json',
 
-      Authorization: `Bearer ${token}`,
-    },
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 
   return user;
 }
@@ -128,14 +136,17 @@ function display (datas) {
 
 async function remove (id) {
   console.log ('from movetOBAG');
-  await fetch (`http://localhost:2233/wishlists/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
+  await fetch (
+    `https://mysterious-depths-64439.herokuapp.com/wishlists/${id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
 
-      Authorization: `Bearer ${token}`,
-    },
-  });
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
   window.location.reload ();
 }
 
@@ -149,7 +160,7 @@ async function moveToBag (id) {
   };
   let data_to_send = JSON.stringify (newData);
   console.log ('data_to_send:', data_to_send);
-  fetch (`http://localhost:2233/*/user/add`, {
+  fetch (`https://mysterious-depths-64439.herokuapp.com/*/user/add`, {
     method: 'PATCH',
     body: data_to_send,
     headers: {
