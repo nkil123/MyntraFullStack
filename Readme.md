@@ -87,7 +87,7 @@ You've got a couple of options to run this project into your local system.<br>
 
 <h1>Screenshots:-</h1>
 
-<img src="https://i.imgur.com/1Oi2M0B.png">
+<img src="https://imgur.com/a/aNE1pWe">
 
 
   <img src="https://i.postimg.cc/VzCkpSmw/products-All.png">
