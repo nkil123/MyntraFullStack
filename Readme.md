@@ -4,21 +4,25 @@ Myntra is a major Indian e-commerce comopany headquartered in Bangalore. The com
 
 ## Project Overview :-
 
-This is a complete full-stack project of developing clone of this e-commerce website Myntra.com <br>
-We've added all the fuctionalities of the website in our project for a lifelike user experience. Users can browse the products, filter them according to their needs, add them to the cart, check out of the cart and make payments at the end. This replication of whole user experince makes it difficult to differentiate between the original website and our clone version of it. <br>
+This is a complete full-stack project of developing clone of e-commerce website Myntra.com <br>
+This being a backend-focused project, we've not used HTML for creating any markups. Instead every single page in this project is created using a javascript template engine - EJS. EJS enables you to generate full-blown HTML pages with stunning frontend with dynamic data & it can also share templated pieces with other web pages.<br>
+Here, we've added all the fuctionalities of the website in our project for a lifelike user experience. Users can browse the products, filter them according to their needs, add them to the cart, check out of the cart and make payments at the end. This replication of whole user experince makes it difficult to differentiate between the original website and our clone version of it. <br>
 
 ## Getting Started :-
 
 You've got a couple of options to run this project into your local system.<br>
-First and the easiest way is to use this [link](https://mysterious-depths-64439.herokuapp.com/) where we've deployed our whole project.<br>
 
-The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below:
+<ul>
+<li>First and the easiest way is to use this <a href="https://mysterious-depths-64439.herokuapp.com/">link</a> where we've deployed our whole project.</li>
+
+<li>The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below :</li>
 <ul>
   <li>Clone the given repository into your local system.</li>
-  <li>Open that repository in your preferred IDE</li>
-  <li>Import all the required npm modules by running "npm install" command in the current repository</li>
-  <li> ------------ </li>
-  <li> ------------ </li>
+  <li>Open that repository in your preferred IDE.</li>
+  <li>Import all the required npm modules by running "npm install" command in the current repository.</li>
+  <li>Run "npm run server" command in this repository in your code editor.</li>
+  <li>Navigate to "http://localhost:2233/" in your preferred browser, and voila!!! Welcome to our project. Now you can navigate to different pages like products, productDetails, shoppingBag, payments etc. using the on-page provided links. These links will redirect you the respective pages.</li>
+</ul>
 </ul>
 
 ## Tech-stack Used :-
@@ -29,6 +33,7 @@ The second way consists of cloning the repository into your system & running the
   <li>NodeJS</li>
   <li>EJS</li>
   <li>MongoDB</li>
+  <li>Heroku</li>
 </ul>
 
 ## Libraries Used :-
@@ -57,7 +62,9 @@ The second way consists of cloning the repository into your system & running the
 ## Functionalities Added :-
 
 <ul>
-  <li>Responsive HomePage</li>
+  <li>Markups generated using a NoodJS template engine - EJS</li>
+  <li>All the data fetched from a cloud database of MongoDB - Atlas</li>
+  <li>Responsive Homepage</li>
   <li>One Time Password (OTP) functionality for Signing Up & Signing In</li>
   <li>Filters functionality in Products page for enabling better user experience</li>
   <li>Sorting the products based on Price, User ratings, etc.</li>
@@ -65,8 +72,6 @@ The second way consists of cloning the repository into your system & running the
   <li>Applying various discounts and adjusting the cart value accordingly</li>
   <li>User-friendly checkout process</li>
   <li>A convenient Payments page & thus successfully placing the order</li>
-  <li> ----- </li>
-  <li> ----- </li>
 </ul>
 
 ## Team Members :-
