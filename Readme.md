@@ -33,6 +33,7 @@ You've got a couple of options to run this project into your local system.<br>
   <li>NodeJS</li>
   <li>EJS</li>
   <li>MongoDB</li>
+  <li>Heroku</li>
 </ul>
 
 ## Libraries Used :-
