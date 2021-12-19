@@ -14,7 +14,7 @@ You've got a couple of options to run this project into your local system.<br>
 <ul>
 <li>First and the easiest way is to use this <a href="https://mysterious-depths-64439.herokuapp.com/">link</a> where we've deployed our whole project.</li>
 
-<li>The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below:</li>
+<li>The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below :</li>
 <ul>
   <li>Clone the given repository into your local system.</li>
   <li>Open that repository in your preferred IDE</li>
