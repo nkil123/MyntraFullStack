@@ -11,7 +11,7 @@ We've added all the fuctionalities of the website in our project for a lifelike 
 
 You've got a couple of options to run this project into your local system.<br>
 <ul>
-<li>First and the easiest way is to use this [link] where we've deployed our whole project.</li>
+* First and the easiest way is to use this [link] where we've deployed our whole project.<br>
 
 <li>The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below:</li>
 <ul>
