@@ -193,7 +193,7 @@ function MyntraDecricption () {
   pin_pro_1.innerHTML =
     '<ion-icon name="train-outline"></ion-icon>' +
     ' ' +
-    'Get it by Tue, Nov 25';
+    'Get it by Mon,Dec 27';
   pin_pro_2.innerHTML =
     '<ion-icon name="cash-outline"></ion-icon>' +
     ' ' +
