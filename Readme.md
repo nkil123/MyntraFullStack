@@ -10,8 +10,8 @@ We've added all the fuctionalities of the website in our project for a lifelike 
 ## Getting Started :-
 
 You've got a couple of options to run this project into your local system.<br>
-
-* First and the easiest way is to use this [link] where we've deployed our whole project.<br>
+<ul>
+<li>First and the easiest way is to use this [link] where we've deployed our whole project.</li>
 
 <li>The second way consists of cloning the repository into your system & running the project on your local machine. For a step-by-step guide to this second method, kindly follow the steps given below:</li>
 <ul>
@@ -21,7 +21,7 @@ You've got a couple of options to run this project into your local system.<br>
   <li>Run "npm run server" command in this repository in your code editor.</li>
   <li>Navigate to "http://localhost:2233/" in your preferred browser, and voila!!! Welcome to our project. Now you can navigate to different pages like products, productDetails, shoppingBag, payments etc. using the on-page provided links. These links will redirect you the respective pages.</li>
 </ul>
-
+</ul>
 
 ## Tech-stack Used :-
 
