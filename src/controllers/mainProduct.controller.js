@@ -1,5 +1,6 @@
 const express = require ('express');
 const MainProduct = require ('../models/mainProduct.model');
+const Product = require ('../models/product.model');
 const router = express.Router ();
 const port = process.env.PORT || 2233;
 router.post ('', async (req, res) => {
@@ -33,7 +34,7 @@ router.get ('/products', async (req, res) => {
       .populate ('products')
       .lean ()
       .exec ();
-    console.log (mainProducts);
+    // console.log (mainProducts);
     let products = mainProducts[0].products;
     // return res.json (mainProducts);
     return res.render ('productsPage', {products});

@@ -38,11 +38,6 @@ function leavee (id) {
   p_div.style.visibility = 'hidden';
 }
 
-function page (num) {
-  console.log (num);
-  window.location.href = `/products/*/page?page=1&size=10`;
-}
-
 // let product_div = document.getElementsByClassName ('product_div');
 
 // product_div.onmouseenter = function () {

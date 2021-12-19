@@ -598,7 +598,12 @@
 
   <div class="search">
     <a href="#"><span class="material-icons">search</span></a>
-    <input type="text" placeholder="Search for products, brands & more" />
+    <input
+      type="text"
+      onmousewheel="search()"
+      placeholder="Search for products, brands & more"
+      id="inputVal"
+    />
   </div>
 
   <div class="right">
@@ -650,6 +655,14 @@
   }
   function wishPage() {
     window.location.href = "/signup-login";
+  }
+
+  function search() {
+    let sval = document.getElementById("inputVal").value;
+    // console.log(sval);
+    if (sval.length >= 3) {
+      window.location.href = `/products/search/${sval}`;
+    }
   }
 </script>
 <!-- 

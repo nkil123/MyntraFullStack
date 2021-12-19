@@ -24,7 +24,7 @@ router.get ('', async (req, res) => {
 });
 router.get ('/*/page/:id', async (req, res) => {
   try {
-    console.log ('inside wishlist controller');
+    // console.log ('inside wishlist controller');
     const wishlist = await Wishlist.findById (req.params.id).lean ().exec ();
 
     // return res.json (wishlist);
@@ -65,17 +65,15 @@ router.patch ('/:id', async (req, res) => {
 
 router.delete ('/:id', authenticate, async (req, res) => {
   try {
-    console.log ('indide delete');
+    // console.log ('indide delete');
     let user = req.user.user;
     console.log ('id', req.params.id);
     let newUser = await User.findById (user._id).find ().lean ().exec ();
     console.log ('newUser:', newUser);
     let wishlists = newUser[0].wishItems;
 
-    // let newL = wishlists.filter (e => {
-    //   e !== ObjectID (req.params.id);
-    // });
-    // console.log (newL, 'newL');
+
+   
     let newarr = [];
     for (let i = 0; i < wishlists.length; i++) {
       // console.log (wishlists[i].toString ());
@@ -83,7 +81,7 @@ router.delete ('/:id', authenticate, async (req, res) => {
         newarr.push (wishlists[i]);
       }
     }
-    console.log (newarr, 'newarr');
+    // console.log (newarr, 'newarr');
 
     user = await User.findByIdAndUpdate (
       user._id,
@@ -94,7 +92,7 @@ router.delete ('/:id', authenticate, async (req, res) => {
     )
       .lean ()
       .exec ();
-    console.log (user, 'finaluser');
+    // console.log (user, 'finaluser');
     return res.status (201).send (user);
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
