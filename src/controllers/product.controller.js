@@ -47,6 +47,32 @@ router.get ('/page', async (req, res) => {
   }
 });
 
+
+
+router.get ('/category/:p1/:p2', async (req, res) => {
+  try {
+    console.log ('inside category');
+    // console.log (cat, req.query.parameter);
+    // console.log (req.params.p1, req.params.p2);
+    let page=+req.query.page || 1;
+    let size=15;
+    let skip = (page-1)*size;
+
+    let products = await Product.find ({gender: req.params.p2}).skip(skip).limit(size).lean ().exec ();
+    // console.log (req.params.p1, req.params.p2);
+    // products = products.filter (p => {
+    //   console.log (req.params.p1, req.params.p2);
+    //   return p[req.params.p1] === req.params.p2;
+    // });
+    // return res.json (products);
+    let totalPages = Math.ceil(await Product.find ({gender: req.params.p2}).count()/size);
+    console.log(totalPages)
+    return res.render ('productsPage.ejs', {products:products,gender: JSON.stringify(req.params.p2), totalPages,page});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
 router.get ('/:id', async (req, res) => {
   try {
     // console.log ('id find');
@@ -56,27 +82,11 @@ router.get ('/:id', async (req, res) => {
     // return res.json (product);
     return res.render ('description', {product: JSON.stringify (product)});
   } catch (e) {
-    return res.status (500).json ({message: e.message, satus: 'Failed'});
+    return res.status (500).json ({message: e.message, satus: 'aaaaa  Failed'});
   }
 });
 
-router.get ('/category/:p1/:p2', async (req, res) => {
-  try {
-    console.log ('inside category');
-    // console.log (cat, req.query.parameter);
-    // console.log (req.params.p1, req.params.p2);
-    let products = await Product.find ().lean ().exec ();
-    console.log (req.params.p1, req.params.p2);
-    products = products.filter (p => {
-      console.log (req.params.p1, req.params.p2);
-      return p[req.params.p1] === req.params.p2;
-    });
-    // return res.json (products);
-    return res.render ('productsPage.ejs', {products});
-  } catch (e) {
-    return res.status (500).json ({message: e.message, satus: 'Failed'});
-  }
-});
+
 router.get ('/bags/:id', authenticate, async (req, res) => {
   try {
     console.log ('inside bags');

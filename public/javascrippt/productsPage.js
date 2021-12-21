@@ -37,10 +37,14 @@ function leavee (id) {
 
   p_div.style.visibility = 'hidden';
 }
+console.log("gender-----",gender);console.log("gender-----",gender);console.log("gender-----",gender);
+// function page (num) {
+//   console.log("inside page quary",gen);
+//   let query = "ageGroup";
+//     window.location.href = `/products/category/${query}/${gender}?page=${num}`;
+// }
 
-function page (num) {
-  window.location.href = `/products?page=${num}`;
-}
+
 
 // let product_div = document.getElementsByClassName ('product_div');
 
