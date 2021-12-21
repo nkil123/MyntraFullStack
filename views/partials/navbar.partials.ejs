@@ -598,7 +598,12 @@
 
   <div class="search">
     <a href="#"><span class="material-icons">search</span></a>
-    <input type="text" placeholder="Search for products, brands & more" />
+    <input
+      type="text"
+      onmousewheel="search()"
+      placeholder="Search for products, brands & more"
+      id="inputVal"
+    />
   </div>
 
   <div class="right">
@@ -646,10 +651,18 @@
 <script>
   function nextPage(parameter) {
     let query = "ageGroup";
-    window.location.href = `/products/category/${query}/${parameter}`;
+    window.location.href = `/products/category/${query}/${parameter}?page=2&size=10`;
   }
   function wishPage() {
     window.location.href = "/signup-login";
+  }
+
+  function search() {
+    let sval = document.getElementById("inputVal").value;
+    // console.log(sval);
+    if (sval.length >= 3) {
+      window.location.href = `/products/search/${sval}`;
+    }
   }
 </script>
 <!-- 

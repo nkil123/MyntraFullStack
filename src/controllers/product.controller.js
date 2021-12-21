@@ -14,7 +14,7 @@ router.post ('', async (req, res) => {
 });
 router.get ('', async (req, res) => {
   try {
-    console.log ('inside this');
+    // console.log ('inside this');
     const page = +req.query.page || 1;
     const size = +req.query.limit || 20;
     const offset = (page - 1) * size;
@@ -29,18 +29,21 @@ router.get ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('/page', async (req, res) => {
+
+router.get ('/*/page', async (req, res) => {
   try {
-    console.log ('inside this');
+    console.log ('inside page');
+    console.log (req.query);
     const page = +req.query.page || 1;
-    const size = +req.query.limit || 20;
+    const size = +req.query.limit || 15;
     const offset = (page - 1) * size;
-    const products = await Product.find ()
+    // console.log (page, size, offset);
+
+    const products = await Product.find ({ageGroup: 'Women'})
       .skip (offset)
       .limit (size)
       .lean ()
       .exec ();
-
     return res.render ('productsPage.ejs', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
@@ -107,7 +110,7 @@ router.get ('/price/:p1/:p2', async (req, res) => {
     let products = await Product.find ().lean ().exec ();
     console.log (products);
     products = products.filter (p => {
-      console.log (p.price);
+      // console.log (p.price);
       return p.price < req.params.p2 && p.price > req.params.p1;
     });
 
@@ -163,6 +166,49 @@ router.get ('/sort/:p', async (req, res) => {
     // });
     // console.log (products);
     // return res.json ({products});
+    return res.render ('productsPage.ejs', {products});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+router.get ('/search/:val', async (req, res) => {
+  try {
+    let searchVal;
+    if (
+      req.params.val == 'men' ||
+      req.params.val === 'Men' ||
+      req.params.val == 'mens' ||
+      req.params.val == 'Mens'
+    ) {
+      searchVal = 'Men';
+    }
+    if (
+      req.params.val == 'women' ||
+      req.params.val === 'Women' ||
+      req.params.val == 'womens' ||
+      req.params.val == 'Womens'
+    ) {
+      searchVal = 'Women';
+    }
+    if (
+      req.params.val == 'girls' ||
+      req.params.val === 'Girls' ||
+      req.params.val == 'girl' ||
+      req.params.val == 'Girl'
+    ) {
+      searchVal = 'Girls';
+    }
+    if (
+      req.params.val == 'boys' ||
+      req.params.val === 'Boys' ||
+      req.params.val == 'boy' ||
+      req.params.val == 'Boy'
+    ) {
+      searchVal = 'Boys';
+    }
+    const products = await Product.find ({ageGroup: searchVal}).lean ().exec ();
+
     return res.render ('productsPage.ejs', {products});
   } catch (e) {
     return res.status (500).json ({message: e.message, satus: 'Failed'});

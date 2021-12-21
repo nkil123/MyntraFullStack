@@ -45,7 +45,6 @@ console.log("gender-----",gender);console.log("gender-----",gender);console.log(
 // }
 
 
-
 // let product_div = document.getElementsByClassName ('product_div');
 
 // product_div.onmouseenter = function () {
