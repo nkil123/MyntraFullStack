@@ -3,7 +3,7 @@ const authenticate = require ('../middlewares/authenticate');
 const Bag = require ('../models/bag.model');
 const router = express.Router ();
 
-router.post ('', async (req, res) => {
+router.post ('',authenticate, async (req, res) => {
   try {
     const bag = await Bag.create (req.body);
 
@@ -12,7 +12,7 @@ router.post ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('', async (req, res) => {
+router.get ('',authenticate, async (req, res) => {
   try {
     const bags = await Bag.find ().lean ().exec ();
 
@@ -23,7 +23,7 @@ router.get ('', async (req, res) => {
   }
 });
 
-router.get ('/address', async (req, res) => {
+router.get ('/address',authenticate, async (req, res) => {
   try {
     
 
@@ -35,7 +35,7 @@ router.get ('/address', async (req, res) => {
 });
 
 
-router.get ('/payment', async (req, res) => {
+router.get ('/payment',authenticate, async (req, res) => {
   try {
     
 
@@ -46,7 +46,7 @@ router.get ('/payment', async (req, res) => {
   }
 });
 
-router.get ('/thankyou', async (req, res) => {
+router.get ('/thankyou',authenticate, async (req, res) => {
   try {
     
 
@@ -58,7 +58,7 @@ router.get ('/thankyou', async (req, res) => {
 });
 
 
-router.get ('/:id', async (req, res) => {
+router.get ('/:id',authenticate, async (req, res) => {
   try {
     const bag = await Bag.findById (req.params.id).lean ().exec ();
 
@@ -69,7 +69,7 @@ router.get ('/:id', async (req, res) => {
   }
 });
 
-router.patch ('/:id', async (req, res) => {
+router.patch ('/:id',authenticate, async (req, res) => {
   try {
     const bag = await Bag.findByIdAndUpdate (req.params.id, req.body, {
       new: true,
@@ -83,7 +83,7 @@ router.patch ('/:id', async (req, res) => {
   }
 });
 
-router.delete ('/:id', async (req, res) => {
+router.delete ('/:id',authenticate, async (req, res) => {
   try {
     const bag = await Bag.findByIdAndDelete (req.params.id).lean ().exec ();
 
