@@ -4,7 +4,7 @@ const Wishlist = require ('../models/wishlist.model');
 const User = require ('../models/user.model');
 const router = express.Router ();
 
-router.post ('', async (req, res) => {
+router.post ('',authenticate , async (req, res) => {
   try {
     const wishlist = await Wishlist.create (req.body);
 
@@ -13,7 +13,7 @@ router.post ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('', async (req, res) => {
+router.get ('',authenticate , async (req, res) => {
   try {
     const wishlists = await Wishlist.find ().lean ().exec ();
 
@@ -22,7 +22,7 @@ router.get ('', async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
-router.get ('/*/page/:id', async (req, res) => {
+router.get ('/*/page/:id',authenticate , async (req, res) => {
   try {
     // console.log ('inside wishlist controller');
     const wishlist = await Wishlist.findById (req.params.id).lean ().exec ();
@@ -34,7 +34,7 @@ router.get ('/*/page/:id', async (req, res) => {
   }
 });
 
-router.get ('/:id', async (req, res) => {
+router.get ('/:id',authenticate , async (req, res) => {
   try {
     const wishlist = await Wishlist.findById (req.params.id).lean ().exec ();
 
@@ -45,7 +45,7 @@ router.get ('/:id', async (req, res) => {
   }
 });
 
-router.patch ('/:id', async (req, res) => {
+router.patch ('/:id',authenticate , async (req, res) => {
   try {
     const wishlist = await Wishlist.findByIdAndUpdate (
       req.params.id,
