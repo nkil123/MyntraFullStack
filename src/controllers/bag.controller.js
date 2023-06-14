@@ -82,5 +82,15 @@ router.patch ('/:id',authenticate, async (req, res) => {
     return res.status (500).json ({message: e.message, satus: 'Failed'});
   }
 });
+router.delete ('/:id',authenticate, async (req, res) => {
+  try {
+    const bag = await Bag.findByIdAndDelete (req.params.id).lean ().exec ();
 
+    return res.status (201).send ({bag: bag});
+  } catch (e) {
+    return res.status (500).json ({message: e.message, satus: 'Failed'});
+  }
+});
+
+module.exports = router;
 
